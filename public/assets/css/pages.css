@@ -32,6 +32,10 @@
   overflow-y: scroll;
 }
 
+#CRP-days {
+  max-width: 515.6px;
+}
+
 /* ::-webkit-scrollbar { 
   display: none; 
 } */

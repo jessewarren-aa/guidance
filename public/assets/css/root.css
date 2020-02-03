@@ -33,3 +33,16 @@ div {
 .no-padding {
   padding: 0px;
 }
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.h-52 {
+  height: 52px;
+}
+
+img[id*="drag"] {
+  margin: 5px;
+}
