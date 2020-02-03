@@ -47,6 +47,16 @@
   100% {transform: translateX(0px)}
 }
 
+.add-reward-animation {
+  animation: add-reward-animation 0.5s;
+}
+
+@keyframes add-reward-animation {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(-360deg)}
+}
+
+
 .settings-animation {
   animation: settings-animation 4s;
 }
@@ -76,11 +86,6 @@
   cursor: pointer;
 }
 
-.shadowed:hover {
-  box-shadow: 2px 2px 5px black;
-  border-radius: 20px;
-}
-
 .plus-icon {
   background: white;
   padding: 10px;
@@ -88,7 +93,7 @@
   border: 3px solid #8DC640;
 }
 
-.add-reward {
+.add-reward-icon {
   background: white;
   padding: 10px;
   border-radius: 25px;
