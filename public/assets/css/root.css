@@ -30,6 +30,10 @@ div {
   margin-right: 10px;
 }
 
+.margin-l-10 {
+  margin-left: 10px;
+}
+
 .no-padding {
   padding: 0px;
 }

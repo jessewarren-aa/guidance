@@ -15,7 +15,7 @@ export const addRoutine = (e) => {
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
 
-      <div class="margin-r-10 no-padding-x display-font cancel-icon-div border-left clickable">
+      <div class="margin-l-10 no-padding-x display-font cancel-icon-div border-left clickable">
         <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
       </div>
     </div>

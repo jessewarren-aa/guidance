@@ -1,3 +1,7 @@
 .remove-border {
   border: none !important;
 }
+
+.routine-creating img {
+  margin: 0px !important;
+}
