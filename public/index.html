@@ -29,8 +29,8 @@
     user settings page
     <div class="row d-flex-center">
       <div class="col d-flex-start fixed-bottom border-top">
-        <div class="display-font clickable go-back-div" onclick="goToPage('#use-routines-page')">
-          <img class="icon-sizer-ui go-back img-fluid" src="assets/images/ui/back.svg" />
+        <div class="display-font clickable shadowed back-icon-div" onclick="goToPage('#use-routines-page')">
+          <img class="icon-sizer-ui back-icon img-fluid" src="assets/images/ui/back.svg" />
           use routines
         </div>
       </div>
@@ -40,11 +40,13 @@
   <div id="create-routines-page" class="container page-showing page-hiding">
     <div id="CRP-body" class="row">
       <div id="CRP-routines" class="col border-right">
-        <div 
-          class="border-bottom border-top new-routine d-flex-center plus-icon-div"
-          onclick="addRoutine()"
-        >
-          <img class="icon-sizer-ui plus-icon img-fluid" src="assets/images/ui/plus.svg" />
+        <div class="border-bottom border-top new-routine d-flex-center">
+          <div 
+            class="plus-icon-div clickable no-padding-x" 
+            onclick="addRoutine()"
+          >
+            <img class="icon-sizer-ui plus-icon img-fluid" src="assets/images/ui/plus.svg" />
+          </div>
         </div>
       </div>
       <div id="CRP-days" class="col border-left">
@@ -53,8 +55,8 @@
     </div>
     <div class="row d-flex-center">
       <div class="col d-flex-start fixed-bottom border-top">
-        <div class="display-font clickable go-back-div" onclick="goToPage('#use-routines-page')">
-          <img class="icon-sizer-ui go-back img-fluid" src="assets/images/ui/back.svg" />
+        <div class="display-font clickable  back-icon-div" onclick="goToPage('#use-routines-page')">
+          <img class="icon-sizer-ui back-icon img-fluid" src="assets/images/ui/back.svg" />
           use routines
         </div>
       </div>
@@ -65,12 +67,12 @@
     use routines page
     <div class="row">
       <div class="col fixed-bottom d-flex-center border-top">
-        <div class="display-font clickable go-settings-div" onclick="goToPage('#user-settings-page')">
+        <div class="display-font clickable  settings-icon-div" onclick="goToPage('#user-settings-page')">
           settings
-          <img class="icon-sizer-ui go-settings img-fluid" src="assets/images/ui/settings.svg" />
+          <img class="icon-sizer-ui settings-icon img-fluid" src="assets/images/ui/settings.svg" />
         </div>
-        <div class="display-font clickable go-create-div" onclick="goToPage('#create-routines-page')">
-          <img class="icon-sizer-ui go-create img-fluid" src="assets/images/ui/addheart.svg" />
+        <div class="display-font clickable  create-icon-div" onclick="goToPage('#create-routines-page')">
+          <img class="icon-sizer-ui create-icon img-fluid" src="assets/images/ui/addheart.svg" />
           create
         </div>
       </div>

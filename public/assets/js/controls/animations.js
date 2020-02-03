@@ -1,32 +1,15 @@
-$(".go-back").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
-  $(this).removeClass(`poke-left`)
-})
+export const animationBind = (elementName) => {
+  $(`.${elementName}-icon`).bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
+    $(this).removeClass(`${elementName}-animation`)
+  })
 
-$(".go-back-div").mouseenter(function () {
-  $(".go-back").addClass(`poke-left`);
-})
+  $(`.${elementName}-icon-div`).mouseenter(function () {
+    $(this).children($(`.${elementName}-icon`)).addClass(`${elementName}-animation`);
+  })
+}
 
-$(".go-create").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
-  $(this).removeClass(`pulse`)
-})
-
-$(".go-create-div").mouseenter(function () {
-  $(".go-create").addClass(`pulse`);
-})
-
-$(".go-settings").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
-  $(this).removeClass(`spin`)
-})
-
-$(".go-settings-div").mouseenter(function () {
-  $(".go-settings").addClass(`spin`);
-})
-
-$(".plus-icon").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
-  $(this).removeClass(`pulse`)
-})
-
-$(".plus-icon-div").mouseenter(function () {
-  $(".plus-icon").addClass(`pulse`);
-})
+animationBind("plus")
+animationBind("create")
+animationBind("settings")
+animationBind("back")
 

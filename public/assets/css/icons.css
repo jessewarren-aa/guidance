@@ -2,44 +2,44 @@
   width: 52px;
 }
 
-.go-back {
+.back-icon {
   background: white;
   padding: 10px;
   border-radius: 25px;
   border: 3px solid #8ed7e8;
 }
 
-.go-back:hover {
+.back-icon:hover {
   cursor: pointer;
 }
 
-.go-settings {
+.settings-icon {
   background: white;
   padding: 10px;
   border-radius: 25px;
   border: 3px solid #7ac1dd;
 }
 
-.go-settings:hover {
+.settings-icon:hover {
   cursor: pointer;
 }
 
-.go-create {
+.create-icon {
   background: white;
   padding: 10px;
   border-radius: 25px;
   border: 3px solid #ff737d;
 }
 
-.go-create:hover {
+.create-icon:hover {
   cursor: pointer;
 }
 
-.poke-left {
-  animation: poke-left 1s;
+.back-animation {
+  animation: back-animation 1s;
 }
 
-@keyframes poke-left {
+@keyframes back-animation {
   0% {transform: translateX(0px)}
   25% {transform: translateX(-10px)}
   50% {transform: translateX(0px)}
@@ -47,11 +47,11 @@
   100% {transform: translateX(0px)}
 }
 
-.spin {
-  animation: spin 4s;
+.settings-animation {
+  animation: settings-animation 4s;
 }
 
-@keyframes spin {
+@keyframes settings-animation {
   0% {transform: rotate(0deg)}
   20% {transform: rotate(-360deg)}
   40% {transform: rotate(-360deg)}
@@ -60,18 +60,24 @@
   100% {transform: rotate(360deg)}
 }
 
-.pulse {
-  animation: pulse 0.5s 2;
+.plus-animation, .create-animation {
+  animation: plus-animation 0.5s 2;
 }
 
-@keyframes pulse {
+@keyframes plus-animation {
   0% {transform: scale(1)}
   50% {transform: scale(1.1)}
 }
 
+
+
+
 .clickable:hover {
-  box-shadow: 2px 2px 5px black;
   cursor: pointer;
+}
+
+.shadowed:hover {
+  box-shadow: 2px 2px 5px black;
   border-radius: 20px;
 }
 
@@ -80,4 +86,11 @@
   padding: 10px;
   border-radius: 25px;
   border: 3px solid #8DC640;
+}
+
+.add-reward {
+  background: white;
+  padding: 10px;
+  border-radius: 25px;
+  border: 3px solid #cf92ff;
 }

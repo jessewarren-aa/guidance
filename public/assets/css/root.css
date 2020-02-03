@@ -17,6 +17,7 @@ div {
   font-size: 28px;
 }
 
-.no-padding {
-  padding: 0px;
+.no-padding-x {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
