@@ -22,3 +22,11 @@ $(".go-settings-div").mouseenter(function () {
   $(".go-settings").addClass(`spin`);
 })
 
+$(".plus-icon").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
+  $(this).removeClass(`pulse`)
+})
+
+$(".plus-icon-div").mouseenter(function () {
+  $(".plus-icon").addClass(`pulse`);
+})
+
