@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="assets/css/icons.css">
   <link rel="stylesheet" href="assets/css/root.css">
   <link rel="stylesheet" href="assets/css/routines.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
 
 </head>
 <body>
@@ -38,8 +39,11 @@
 
   <div id="create-routines-page" class="container page-showing page-hiding">
     <div id="CRP-body" class="row">
-      <div id="CRP-routines" class="col border-right d-flex-center">
-        <div class="border-left border-right new-routine plus-icon-div">
+      <div id="CRP-routines" class="col border-right">
+        <div 
+          class="border-bottom border-top new-routine d-flex-center plus-icon-div"
+          onclick="addRoutine()"
+        >
           <img class="icon-sizer-ui plus-icon img-fluid" src="assets/images/ui/plus.svg" />
         </div>
       </div>

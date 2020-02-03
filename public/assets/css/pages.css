@@ -27,5 +27,11 @@
 }
 
 #CRP-body {
-  max-height: calc(100vh - 143px)
+  max-height: calc(100vh - 143px);
+  min-height: calc(100vh - 143px);
+  overflow-y: scroll;
 }
+
+/* ::-webkit-scrollbar { 
+  display: none; 
+} */

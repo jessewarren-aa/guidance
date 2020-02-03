@@ -16,3 +16,7 @@ div {
   font-family: 'Fredericka the Great', cursive;
   font-size: 28px;
 }
+
+.no-padding {
+  padding: 0px;
+}
