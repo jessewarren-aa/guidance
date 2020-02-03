@@ -15,7 +15,10 @@ export const addRoutine = (e) => {
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
 
-      <div class="margin-l-10 no-padding-x display-font cancel-icon-div border-left clickable">
+      <div 
+        class="margin-l-10 no-padding-x display-font cancel-icon-div border-left clickable"
+        onclick="destroyRoutine(event)"
+      >
         <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
       </div>
     </div>
@@ -29,8 +32,14 @@ export const addRoutine = (e) => {
   // $(targetElement).addClass("routine-creating")
 }
 
+const destroyRoutine = (e) => {
+  $(e.target).parent().parent().remove()
+}
+
 window.addRoutine = addRoutine
+window.destroyRoutine = destroyRoutine
 
 export default {
-  addRoutine
+  addRoutine,
+  destroyRoutine
 }

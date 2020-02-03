@@ -9,10 +9,16 @@ export const dragDrop = (e) => {
   const data = e.dataTransfer.getData("text");
 
   const copy = document.getElementById(data).cloneNode(true)
-  copy.id = copy.id + (new Date()).toString()
-  $(e.target).html(copy);
+  copy.id = copy.id + Date.parse((new Date()).toString())
+  console.log("HTML DISPLAY", $(e.target).html())
 
-  $(e.target).addClass("remove-border")
+  if ($(e.target).html() === "") {
+    $(e.target).addClass("remove-border")
+  }
+
+  // $(e.target).remove("img");
+
+  $(e.target).html(copy);
 }
 
 export const allowDrop = (e) => {
