@@ -14,13 +14,17 @@ export const addRoutine = (e) => {
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
       <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
+
+      <div class="margin-r-10 no-padding-x display-font cancel-icon-div border-left clickable">
+        <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
+      </div>
     </div>
   `
 
   $(targetElement).before(routineElement)
 
-  animationBind("plus-grey")
   animationBind("add-reward")
+  // animationBind("cancel")
 
   // $(targetElement).addClass("routine-creating")
 }
