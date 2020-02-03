@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "webpack": "^4.41.5"
-  }
+  },
+  "engines": {
+    "node": "10.16.0"
+  },
 }
