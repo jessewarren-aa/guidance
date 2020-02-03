@@ -25,3 +25,7 @@
   height: 100vh;
   transition: 0.5s;
 }
+
+#CRP-body {
+  max-height: calc(100vh - 143px)
+}

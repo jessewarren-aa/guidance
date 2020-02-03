@@ -25,39 +25,50 @@
   <!-- BODY -->
   <div id="user-settings-page" class="container page-hiding">
     user settings page
-    <div class="col-md-12 fixed-bottom border-top">
-      <div class="display-font">
-        <img class="icon-sizer-ui go-back" src="assets/images/ui/back.svg" onclick="goToPage('#use-routines-page')" />
-        use routines
+    <div class="row d-flex-center">
+      <div class="col d-flex-start fixed-bottom border-top">
+        <div class="display-font clickable go-back-div" onclick="goToPage('#use-routines-page')">
+          <img class="icon-sizer-ui go-back img-fluid" src="assets/images/ui/back.svg" />
+          use routines
+        </div>
       </div>
     </div>
   </div>
 
-  <div id="create-routines-page" class="container page-hiding">
-    create routines page
-    <div class="col-md-12 fixed-bottom border-top">
-      <div class="display-font">
-        <img class="icon-sizer-ui go-back" src="assets/images/ui/back.svg" onclick="goToPage('#use-routines-page')" />
-        use routines
+  <div id="create-routines-page" class="container page-showing page-hiding">
+    <div id="CRP-body" class="row">
+      <div id="CRP-routines" class="col border-right">
+        <div class="new-routine">
+          
+        </div>
+      </div>
+      <div id="CRP-days" class="col border-left">
+      
       </div>
     </div>
-    
+    <div class="row d-flex-center">
+      <div class="col d-flex-start fixed-bottom border-top">
+        <div class="display-font clickable go-back-div" onclick="goToPage('#use-routines-page')">
+          <img class="icon-sizer-ui go-back img-fluid" src="assets/images/ui/back.svg" />
+          use routines
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div id="use-routines-page" class="container page-showing page-hiding">
+  <div id="use-routines-page" class="container page-hiding">
     use routines page
     <div class="row">
-      <div class="col-md-12 fixed-bottom d-flex-center border-top">
-        <div class="display-font">
-          change settings
-          <img class="icon-sizer-ui go-settings" src="assets/images/ui/settings.svg" onclick="goToPage('#user-settings-page')" />
+      <div class="col fixed-bottom d-flex-center border-top">
+        <div class="display-font clickable go-settings-div" onclick="goToPage('#user-settings-page')">
+          settings
+          <img class="icon-sizer-ui go-settings img-fluid" src="assets/images/ui/settings.svg" />
         </div>
-        <div class="display-font">
-          <img class="icon-sizer-ui go-create" src="assets/images/ui/addheart.svg" onclick="goToPage('#create-routines-page')" />
-          create routine
+        <div class="display-font clickable go-create-div" onclick="goToPage('#create-routines-page')">
+          <img class="icon-sizer-ui go-create img-fluid" src="assets/images/ui/addheart.svg" />
+          create
         </div>
       </div>
-
     </div>
   </div>
   <!-- /BODY -->

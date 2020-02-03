@@ -35,13 +35,29 @@
   cursor: pointer;
 }
 
-.spin-left {
-  animation: spin-left 0.5s;
+.poke-left {
+  animation: poke-left 1s;
 }
 
-@keyframes spin-left {
+@keyframes poke-left {
+  0% {transform: translateX(0px)}
+  25% {transform: translateX(-10px)}
+  50% {transform: translateX(0px)}
+  75% {transform: translateX(-10px)}
+  100% {transform: translateX(0px)}
+}
+
+.spin {
+  animation: spin 4s;
+}
+
+@keyframes spin {
   0% {transform: rotate(0deg)}
-  100% {transform: rotate(-360deg)}
+  20% {transform: rotate(-360deg)}
+  40% {transform: rotate(-360deg)}
+  60% {transform: rotate(0deg)}
+  80% {transform: rotate(360deg)}
+  100% {transform: rotate(360deg)}
 }
 
 .pulse {
@@ -51,4 +67,10 @@
 @keyframes pulse {
   0% {transform: scale(1)}
   50% {transform: scale(1.1)}
+}
+
+.clickable:hover {
+  box-shadow: 2px 2px 5px black;
+  cursor: pointer;
+  border-radius: 20px;
 }

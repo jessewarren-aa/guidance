@@ -1,23 +1,24 @@
 $(".go-back").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
-  $(this).removeClass(`spin-left`)
+  $(this).removeClass(`poke-left`)
 })
 
-$(".go-back").mouseenter(function () {
-  $(this).addClass(`spin-left`);
+$(".go-back-div").mouseenter(function () {
+  $(".go-back").addClass(`poke-left`);
 })
 
 $(".go-create").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
   $(this).removeClass(`pulse`)
 })
 
-$(".go-create").mouseenter(function () {
-  $(this).addClass(`pulse`);
+$(".go-create-div").mouseenter(function () {
+  $(".go-create").addClass(`pulse`);
 })
 
 $(".go-settings").bind("webkitAnimationEnd mozAnimationEnd animationend", function () {
-  $(this).removeClass(`spin-left`)
+  $(this).removeClass(`spin`)
 })
 
-$(".go-settings").mouseenter(function () {
-  $(this).addClass(`spin-left`);
+$(".go-settings-div").mouseenter(function () {
+  $(".go-settings").addClass(`spin`);
 })
+
