@@ -93,6 +93,13 @@
   border: 3px solid #8DC640;
 }
 
+.water-icon {
+  background: white;
+  padding: 5px;
+  border-radius: 15px;
+  border: 2px solid #a3defe !important;
+}
+
 .grey-icon-div {
   background: white;
   padding: 5px;

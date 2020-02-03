@@ -9,11 +9,11 @@ export const addRoutine = (e) => {
         <img class="icon-sizer-ui add-reward-icon img-fluid" src="assets/images/ui/gems.svg" />
       </div>
 
-      <div class="no-padding-x grey-icon-div"></div>
-      <div class="no-padding-x grey-icon-div"></div>
-      <div class="no-padding-x grey-icon-div"></div>
-      <div class="no-padding-x grey-icon-div"></div>
-      <div class="no-padding-x grey-icon-div"></div>
+      <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
+      <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
+      <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
+      <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
+      <div class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"></div>
     </div>
   `
 
