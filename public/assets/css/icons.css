@@ -1,0 +1,54 @@
+.icon-sizer-ui {
+  width: 52px;
+}
+
+.go-back {
+  background: white;
+  padding: 10px;
+  border-radius: 25px;
+  border: 3px solid #8ed7e8;
+}
+
+.go-back:hover {
+  cursor: pointer;
+}
+
+.go-settings {
+  background: white;
+  padding: 10px;
+  border-radius: 25px;
+  border: 3px solid #7ac1dd;
+}
+
+.go-settings:hover {
+  cursor: pointer;
+}
+
+.go-create {
+  background: white;
+  padding: 10px;
+  border-radius: 25px;
+  border: 3px solid #ff737d;
+}
+
+.go-create:hover {
+  cursor: pointer;
+}
+
+.spin-left {
+  animation: spin-left 0.5s;
+}
+
+@keyframes spin-left {
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(-360deg)}
+}
+
+.pulse {
+  animation: pulse 0.5s 2;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1)}
+  50% {transform: scale(1.1)}
+}

@@ -1,0 +1,27 @@
+#user-settings-page {
+  background: white;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+.page-hiding {
+  position: absolute;
+  left: 105.6px;
+  transform: translateY(-100vh);
+}
+
+.page-showing {
+  transform: translateY(0vh);
+}
+
+#create-routines-page {
+  background: white;
+  height: 100vh;
+  transition: 0.5s;
+}
+
+#use-routines-page {
+  background: white;
+  height: 100vh;
+  transition: 0.5s;
+}

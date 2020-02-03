@@ -12,12 +12,51 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
     crossorigin="anonymous">
 
+  <link 
+    href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" 
+    rel="stylesheet">
 
+  <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/icons.css">
+  <link rel="stylesheet" href="assets/css/root.css">
 
 </head>
 <body>
   <!-- BODY -->
-  test
+  <div id="user-settings-page" class="container page-hiding">
+    user settings page
+    <img 
+      class="icon-sizer-ui go-back" 
+      src="assets/images/ui/back.svg" 
+      onclick="goToPage('#use-routines-page')"
+    />
+  </div>
+
+  <div id="create-routines-page" class="container page-hiding">
+    create routines page
+    <img 
+      class="icon-sizer-ui go-back" 
+      src="assets/images/ui/back.svg" 
+      onclick="goToPage('#use-routines-page')"
+    />
+  </div>
+
+  <div id="use-routines-page" class="container page-showing page-hiding">
+    use routines page
+    <div class="row">
+      <div class="col-md-12 fixed-bottom d-flex-center border-top">
+        <div class="display-font">
+          change settings
+          <img class="icon-sizer-ui go-settings" src="assets/images/ui/settings.svg" onclick="goToPage('#user-settings-page')" />
+        </div>
+        <div class="display-font">
+          <img class="icon-sizer-ui go-create" src="assets/images/ui/addheart.svg" onclick="goToPage('#create-routines-page')" />
+          create routine
+        </div>
+      </div>
+
+    </div>
+  </div>
   <!-- /BODY -->
 </body>
 <!-- SCRIPTS -->

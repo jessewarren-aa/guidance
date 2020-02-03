@@ -1,0 +1,13 @@
+div {
+  padding: 15px;
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.display-font {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 28px;
+}
