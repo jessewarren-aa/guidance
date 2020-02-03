@@ -1,0 +1,1 @@
+import root from "./components/root.js"
