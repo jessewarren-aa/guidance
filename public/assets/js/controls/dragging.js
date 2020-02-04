@@ -10,11 +10,18 @@ export const dragDrop = (e) => {
 
   const copy = document.getElementById(data).cloneNode(true)
   copy.id = copy.id + Date.parse((new Date()).toString())
-  console.log("HTML DISPLAY", $(e.target).html())
 
   if ($(e.target).html() === "") {
     $(e.target).addClass("remove-border")
   }
+
+  const routineId = $(e.target).parent().attr('id')
+  const dropId = $(e.target).attr('id')
+  const localStorageObject = JSON.parse(window.localStorage.getItem(routineId))
+
+  localStorageObject[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src')
+
+  window.localStorage.setItem(routineId, JSON.stringify(localStorageObject))
 
   // $(e.target).remove("img");
 
