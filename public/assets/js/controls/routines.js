@@ -108,7 +108,11 @@ const loadRoutine = (timeStamp) => {
       id="routine-${timeStamp}"
       class="border-bottom border-top mb-3 d-flex-center routine-creating animated bounceInDown faster"
     >
-      <div class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable">
+      <div 
+        id="reward-${timeStamp}"
+        class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable"
+        onclick="chooseReward(event)"
+      >
         <img class="icon-sizer-ui add-reward-icon img-fluid" src="assets/images/ui/gems.svg" />
       </div>
 
@@ -151,18 +155,27 @@ const destroyRoutine = (e) => {
   $(e.target).parent().parent().remove()
 }
 
+const chooseReward = (e) => {
+  console.log("Choosing reward!")
+  console.log($(e.target).parent().parent().attr('id'))
+  const timeStamp = $(e.target).parent().parent().attr('id').split("-")[1]
+  
+  // $(e.target).parent().parent().addClass("pushed-aside")
+
+  // $(e.target).after(`<div class="caret"></div>`)
+}
+
 const generateLocalStorageRoutines = () => {
   Object.keys(localStorage).forEach(localStorageKey => {
     if (localStorageKey.toString().startsWith("routine-")) {
       loadRoutine(localStorageKey.split("-")[1])
     } // else, ignored key
   })
-
-  // $(beforeThisElement).before
 }
 
 window.addRoutine = addRoutine
 window.destroyRoutine = destroyRoutine
+window.chooseReward = chooseReward
 
 generateLocalStorageRoutines()
 

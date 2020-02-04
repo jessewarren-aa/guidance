@@ -26,6 +26,16 @@
   transition: 0.5s;
 }
 
+.section {
+  max-height: calc(100vh - 143px);
+  min-height: calc(100vh - 143px);
+  overflow-y: scroll;
+}
+
+/* .splash-image-sizer {
+  width: 700px;
+} */
+
 #CRP-body {
   max-height: calc(100vh - 143px);
   min-height: calc(100vh - 143px);

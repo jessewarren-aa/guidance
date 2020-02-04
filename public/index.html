@@ -16,17 +16,75 @@
     href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" 
     rel="stylesheet">
 
+  <link 
+    href="https://fonts.googleapis.com/css?family=Lato&display=swap"  
+    rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/pages.css">
   <link rel="stylesheet" href="assets/css/icons.css">
   <link rel="stylesheet" href="assets/css/root.css">
   <link rel="stylesheet" href="assets/css/routines.css">
   <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="assets/css/caret.css">
 
 </head>
 <body>
   <!-- BODY -->
-  <div id="user-settings-page" class="container page-hiding">
-    user settings page
+  <div id="user-settings-page" class="container page-showing page-hiding">
+    <div class="row">
+      <div class="col no-padding-x">
+        <div class="section no-padding-x">
+
+          <div class="display-font-bigger d-flex-center">
+            routine-guidance
+          </div>
+          <div class="display-font d-flex-center no-padding-x">
+            success is built with patience
+          </div>
+          <div class="body-font d-flex-center no-padding-x">
+            guidance is not so bad, when one feels lost, to light their path
+          </div>
+          <div class="body-font d-flex-center no-padding-x">
+            inspired by this week's tone: &nbsp;<strong>simplicity & encouragement</strong>
+          </div>
+
+          <div></div>
+          <div class="display-font-bigger d-flex-center">
+            built by
+          </div>
+          <div class="display-font d-flex-center no-padding-x">
+            the person in my mirror
+          </div>
+          <div class="body-font d-flex-center no-padding-x">
+            learn a bit more about me on&nbsp;<a target="_blank" href="http://jesse-warren.github.io/">my website</a>
+          </div>
+
+          <div></div>
+          <div class="display-font-bigger d-flex-center">
+            credits
+          </div>
+          <div class="display-font d-flex-center no-padding-x">
+            for I am no designer
+          </div>
+          <div class="body-font d-flex-center no-padding-x">
+            Icons made by&nbsp;<a target="_blank" href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>&nbsp;from&nbsp;<a
+              target="_blank" href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+          </div>
+
+          <div class="body-font d-flex-center no-padding-x">
+            Illustrations by&nbsp;<a target="_blank" href="https://icons8.com/ouch">Ouch.pics</a>
+          </div>
+
+          <div class="d-flex-center no-padding-x">
+            <img class="img-fluid" src="assets/images/pale-logged-out.png">
+          </div>
+
+          <div class="display-font d-flex-center no-padding-x">
+            believe in yourself, okay?
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="row d-flex-center">
       <div class="col d-flex-start fixed-bottom border-top">
         <div class="display-font clickable back-icon-div" onclick="goToPage('#use-routines-page')">
@@ -37,7 +95,7 @@
     </div>
   </div>
 
-  <div id="create-routines-page" class="container page-showing page-hiding">
+  <div id="create-routines-page" class="container page-hiding">
     <div id="CRP-body" class="row">
       <div id="CRP-routines" class="col border-right">
         <div class="border-bottom border-top new-routine d-flex-center">
@@ -154,12 +212,16 @@
   </div>
 
   <div id="use-routines-page" class="container page-hiding">
-    use routines page
+    <div class="row">
+      <div class="col">
+        use routines
+      </div>
+    </div>
     <div class="row">
       <div class="col fixed-bottom d-flex-center border-top">
         <div class="display-font clickable settings-icon-div" onclick="goToPage('#user-settings-page')">
-          settings
-          <img class="icon-sizer-ui settings-icon img-fluid" src="assets/images/ui/settings.svg" />
+          about
+          <img class="icon-sizer-ui settings-icon img-fluid" src="assets/images/ui/pineconfused.svg" />
         </div>
         <div class="display-font clickable create-icon-div" onclick="goToPage('#create-routines-page')">
           <img class="icon-sizer-ui create-icon img-fluid" src="assets/images/ui/addheart.svg" />
