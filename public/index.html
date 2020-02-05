@@ -122,16 +122,30 @@
       </div>
       <div id="CRP-days" class="col border-left">
         <div class="d-flex-center display-font">rewards</div>
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/coins.svg" />
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/cookie.svg" />
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/crepe.svg" />
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/icecream.svg" />
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/movie.svg" />
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/tv.svg" />
-        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/videogames.svg" />
+        <img id="dragCoins" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/coins.svg" />
+        <img id="dragCookie" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/cookie.svg" />
+        <img id="dragCrepe" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/crepe.svg" />
+        <img id="dragIceCream" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/icecream.svg" />
+        <img id="dragMovie" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/movie.svg" />
+        <img id="dragTV" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/tv.svg" />
+        <img id="dragVideoGames" 
+        draggable="true" ondragstart="dragRewardStart(event)"
+        class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/videogames.svg" />
         
         <hr />
-        
+
         <div class="d-flex-center display-font">actions</div>
         <img id="dragBed" draggable="true" ondragstart="dragStart(event)"
           class="personal-care icon-sizer-ui bed-icon clickable img-fluid" 

@@ -9,10 +9,9 @@ export const addRoutine = (e) => {
       id="routine-${timeStamp}"
       class="border-bottom border-top mb-3 d-flex-center routine-creating animated bounceInDown faster"
     >
-      <div id="reward-${timeStamp}" class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable">
-        <div class="add-reward-icon"></div>
+      <div id="reward-${timeStamp}" class="margin-r-10 add-reward-icon no-padding display-font add-reward-icon-div clickable" ondragover="allowDrop(event)" ondrop="dragRewardDrop(event)">
       </div>
-
+      <div class="border-left no-padding mr-2 ml-2"></div>
       <div 
         id="drop-1-${timeStamp}"
         class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"
@@ -119,9 +118,9 @@ const loadRoutine = (timeStamp) => {
     >
       <div 
         id="reward-${timeStamp}"
-        class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right"
-      >${reward === "" ? '<div class="add-reward-icon"></div>' : rewardContent}</div>
-
+        class="no-padding  ${reward === "" ? "" : "remove-border"} display-font add-reward-icon add-reward-icon-div" ondragover="allowDrop(event)" ondrop="dragRewardDrop(event)"
+      >${reward === "" ? '' : rewardContent}</div>
+      <div class="border-left no-padding mr-2 ml-2"></div>
       <div 
         id="drop-1-${timeStamp}"
         class="no-padding ${drop1 === "" ? "" : "remove-border"} grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"
