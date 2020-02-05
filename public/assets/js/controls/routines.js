@@ -36,10 +36,9 @@ export const addRoutine = (e) => {
       <div class="border-left no-padding mr-2 ml-2"></div>
 
       <div 
-        class="margin-l-10 no-padding display-font cancel-icon-div clickable"
-        onclick="destroyRoutine(event)"
+        class="margin-l-10 no-padding display-font cancel-icon-div"
       >
-        <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
+        <img class="icon-sizer-ui cancel-icon img-fluid clickable" src="assets/images/ui/cancel.svg" onclick="destroyRoutine(event)" />
       </div>
     </div>
   `
@@ -147,10 +146,9 @@ const loadRoutine = (timeStamp) => {
       <div class="border-left no-padding mr-2 ml-2"></div>
 
       <div 
-        class="margin-l-10 no-padding display-font cancel-icon-div clickable"
-        onclick="destroyRoutine(event)"
+        class="margin-l-10 no-padding display-font cancel-icon-div"
       >
-        <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
+        <img class="icon-sizer-ui cancel-icon img-fluid clickable" src="assets/images/ui/cancel.svg" onclick="destroyRoutine(event)" />
       </div>
     </div>
   `
@@ -194,7 +192,7 @@ const loadUsedRoutine = (timeStamp) => {
   const routineElement = `
     <div 
       id="use-routine-${timeStamp}"
-      class="border-bottom border-top mb-3 d-flex-center routine-creating animated bounceInDown faster"
+      class="border-bottom border-top mb-3 d-flex-center routine-creating"
     >
       <div
         id="reward-${timeStamp}"
@@ -236,7 +234,11 @@ const generateLocalStorageRoutines = () => {
 }
 
 export const generateLocalStorageRoutinesUsePage = () => {
-  $("#use-page-id").html(`<div class="use-page-placer"></div>`)
+  $("#use-page-id").html(`<div class="display-font no-padding d-flex-center">rewards earned</div>
+  <div id="use-rewards-earned" class="no-padding"></div>
+  <hr class="mb-0" />
+  <div class="display-font d-flex-center">routines</div>
+  <div class="use-page-placer no-padding"></div>`)
   Object.keys(localStorage).forEach(localStorageKey => {
     if (localStorageKey.toString().startsWith("routine-")) {
       loadUsedRoutine(localStorageKey.split("-")[1])
