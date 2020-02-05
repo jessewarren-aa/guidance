@@ -70,6 +70,7 @@ const loadRoutine = (timeStamp) => {
   const rewardContent = `<img 
         id="${rewardItems[2]}" 
         class="${rewardItems[0]}" src="${rewardItems[1]}" 
+        alt="assets/images/rewards/ribbon.svg"
         />`
 
   const drop1 = localStorageObject["drop-1-" + timeStamp] || ""
@@ -78,6 +79,7 @@ const loadRoutine = (timeStamp) => {
         id="${drop1Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
         class="${drop1Items[0]}" src="${drop1Items[1]}" 
+        alt="assets/images/rewards/ribbon.svg"
         />`
 
   const drop2 = localStorageObject["drop-2-" + timeStamp] || ""
@@ -86,6 +88,7 @@ const loadRoutine = (timeStamp) => {
         id="${drop2Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
         class="${drop2Items[0]}" src="${drop2Items[1]}" 
+        alt="assets/images/rewards/ribbon.svg"
         />`
 
   const drop3 = localStorageObject["drop-3-" + timeStamp] || ""
@@ -94,6 +97,7 @@ const loadRoutine = (timeStamp) => {
         id="${drop3Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
         class="${drop3Items[0]}" src="${drop3Items[1]}" 
+        alt="assets/images/rewards/ribbon.svg"
         />`
 
   const drop4 = localStorageObject["drop-4-" + timeStamp] || ""
@@ -102,6 +106,7 @@ const loadRoutine = (timeStamp) => {
         id="${drop4Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
         class="${drop4Items[0]}" src="${drop4Items[1]}" 
+        alt="assets/images/rewards/ribbon.svg"
         />`
 
   const drop5 = localStorageObject["drop-5-" + timeStamp] || ""
@@ -110,6 +115,7 @@ const loadRoutine = (timeStamp) => {
         id="${drop5Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
         class="${drop5Items[0]}" src="${drop5Items[1]}" 
+        alt="assets/images/rewards/ribbon.svg"
         />`
   
   const routineElement = `
@@ -171,23 +177,24 @@ const loadUsedRoutine = (timeStamp) => {
 
   const drop1 = localStorageObject["drop-1-" + timeStamp] || ""
   const drop1Items = drop1.split(":SEPARATOR:")
-  const drop1Content = `<img id="${drop1Items[2]}" class="${drop1Items[0]}" src="${drop1Items[1]}" />`
+  const drop1Content = `<img id="${drop1Items[2]}" class="${drop1Items[0]}" src="${drop1Items[1]}" alt="${drop1Items[3]}" />`
 
   const drop2 = localStorageObject["drop-2-" + timeStamp] || ""
   const drop2Items = drop2.split(":SEPARATOR:")
-  const drop2Content = `<img id="${drop2Items[2]}" class="${drop2Items[0]}" src="${drop2Items[1]}" />`
+  const drop2Content = `<img id="${drop2Items[2]}" class="${drop2Items[0]}" src="${drop2Items[1]}" alt="${drop2Items[3]}" />`
 
   const drop3 = localStorageObject["drop-3-" + timeStamp] || ""
   const drop3Items = drop3.split(":SEPARATOR:")
-  const drop3Content = `<img id="${drop3Items[2]}" class="${drop3Items[0]}" src="${drop3Items[1]}" />`
+  const drop3Content = `<img id="${drop3Items[2]}" class="${drop3Items[0]}" src="${drop3Items[1]}" alt="${drop3Items[3]}" />`
 
   const drop4 = localStorageObject["drop-4-" + timeStamp] || ""
   const drop4Items = drop4.split(":SEPARATOR:")
-  const drop4Content = `<img id="${drop4Items[2]}" class="${drop4Items[0]}" src="${drop4Items[1]}" />`
+
+  const drop4Content = `<img id="${drop4Items[2]}" class="${drop4Items[0]}" src="${drop4Items[1]}" alt="${drop4Items[3]}" />`
 
   const drop5 = localStorageObject["drop-5-" + timeStamp] || ""
   const drop5Items = drop5.split(":SEPARATOR:")
-  const drop5Content = `<img id="${drop5Items[2]}" class="${drop5Items[0]}" src="${drop5Items[1]}" />`
+  const drop5Content = `<img id="${drop5Items[2]}" class="${drop5Items[0]}" src="${drop5Items[1]}" alt="${drop5Items[3]}" />`
 
   const routineElement = `
     <div 
@@ -200,15 +207,25 @@ const loadUsedRoutine = (timeStamp) => {
       >${reward === "" ? '' : rewardContent}</div>
       <div class="border-left no-padding mr-2 ml-2"></div>
 
-      <div class="no-padding ${drop1 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop1 === "" ? "" : drop1Content}</div>
+      <div 
+        id="use-drop-1-${timeStamp}"
+        class="no-padding ${drop1 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop1 === "" ? "" : drop1Content}</div>
 
-      <div class="no-padding ${drop2 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop2 === "" ? "" : drop2Content}</div>
+      <div 
+        id="use-drop-2-${timeStamp}"
+        class="no-padding ${drop2 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop2 === "" ? "" : drop2Content}</div>
 
-      <div class="no-padding ${drop3 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop3 === "" ? "" : drop3Content}</div>
+      <div 
+        id="use-drop-3-${timeStamp}"
+        class="no-padding ${drop3 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop3 === "" ? "" : drop3Content}</div>
 
-      <div class="no-padding ${drop4 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop4 === "" ? "" : drop4Content}</div>
+      <div 
+        id="use-drop-4-${timeStamp}"
+        class="no-padding ${drop4 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop4 === "" ? "" : drop4Content}</div>
 
-      <div class="no-padding ${drop5 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop5 === "" ? "" : drop5Content}</div>
+      <div 
+        id="use-drop-5-${timeStamp}"
+        class="no-padding ${drop5 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop5 === "" ? "" : drop5Content}</div>
     </div>
   `
 
@@ -252,9 +269,18 @@ const toggleCompletion = (e) => {
   const alt = $(e.target).attr('alt') || 'assets/images/rewards/ribbon.svg'
   const src = $(e.target).attr('src')
 
+  console.log(alt, src)
+
   $(e.target).toggleClass("completed")
   $(e.target).attr('alt', src)
   $(e.target).attr('src', alt)
+
+  const routineId = $(e.target).parent().parent().attr('id').slice(4)
+  const routineObject = JSON.parse(localStorage[routineId])
+  const actionId = $(e.target).parent().attr('id').slice(4)
+  routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
+
+  localStorage[routineId] = JSON.stringify(routineObject)
 }
 
 window.toggleCompletion = toggleCompletion

@@ -26,6 +26,12 @@ a:hover {
   font-size: 28px;
 }
 
+.smol-display-font {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .display-font-bigger {
   font-family: 'Fredericka the Great', cursive;
   font-size: 38px;

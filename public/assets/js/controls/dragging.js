@@ -26,7 +26,7 @@ export const dragDrop = (e) => {
 
     const localStorageObj = JSON.parse(window.localStorage.getItem(routineId))
 
-    localStorageObj[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id')
+    localStorageObj[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id') + ":SEPARATOR:" + ($(e.target).attr('alt') || "")
 
     window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
