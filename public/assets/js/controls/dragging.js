@@ -15,21 +15,28 @@ export const dragDrop = (e) => {
   const copy = document.getElementById(data).cloneNode(true)
   copy.id = copy.id + Date.parse((new Date()).toString())
 
-  if ($(e.target).html() === "") {
-    $(e.target).addClass("remove-border")
-  }
-
   const routineId = $(e.target).parent().attr('id')
   const dropId = $(e.target).attr('id')
-  const localStorageObject = JSON.parse(window.localStorage.getItem(routineId))
+  
 
-  localStorageObject[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id')
+  if (copy.id.startsWith("dragRoutine")) {
+    if ($(e.target).html() === "") {
+      $(e.target).addClass("remove-border")
+    }
 
-  window.localStorage.setItem(routineId, JSON.stringify(localStorageObject))
+    const localStorageObj = JSON.parse(window.localStorage.getItem(routineId))
 
-  // $(e.target).remove("img");
+    localStorageObj[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id')
 
-  $(e.target).html(copy);
+    window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
+
+    // $(e.target).remove("img");
+
+    $(e.target).html(copy);
+  }
+
+
+  
 }
 
 export const dragRewardDrop = (e) => {
@@ -39,28 +46,19 @@ export const dragRewardDrop = (e) => {
   const copy = document.getElementById(data).cloneNode(true)
   copy.id = copy.id + Date.parse((new Date()).toString())
 
-  
-
   const routineId = $(e.target).parent().attr('id')
   const dropId = $(e.target).attr('id')
 
-  console.log(routineId)
-  console.log(dropId)
-
-
+  if (copy.id.startsWith("dragReward")) {
     $(`#${dropId}`).addClass("remove-border")
-  
-  console.log($(e.target))
+    const localStorageObj = JSON.parse(window.localStorage.getItem(routineId))
 
-  const localStorageObject = JSON.parse(window.localStorage.getItem(routineId))
+    localStorageObj[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id')
 
-  localStorageObject[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id')
+    window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
-  window.localStorage.setItem(routineId, JSON.stringify(localStorageObject))
-
-  // $(e.target).remove("img");
-
-  $(e.target).html(copy);
+    $(e.target).html(copy);
+  }
 }
 
 export const allowDrop = (e) => {
