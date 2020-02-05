@@ -9,7 +9,7 @@ export const addRoutine = (e) => {
       id="routine-${timeStamp}"
       class="border-bottom border-top mb-3 d-flex-center routine-creating animated bounceInDown faster"
     >
-      <div id="reward-${timeStamp}" class="margin-r-10 add-reward-icon no-padding display-font add-reward-icon-div clickable" ondragover="allowDrop(event)" ondrop="dragRewardDrop(event)">
+      <div id="reward-${timeStamp}" class="margin-r-10 add-reward-icon no-padding display-font add-reward-icon-div" ondragover="allowDrop(event)" ondrop="dragRewardDrop(event)">
       </div>
       <div class="border-left no-padding mr-2 ml-2"></div>
       <div 
@@ -33,8 +33,10 @@ export const addRoutine = (e) => {
         class="no-padding grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"
       ></div>
 
+      <div class="border-left no-padding mr-2 ml-2"></div>
+
       <div 
-        class="margin-l-10 no-padding-x display-font cancel-icon-div border-left clickable"
+        class="margin-l-10 no-padding display-font cancel-icon-div clickable"
         onclick="destroyRoutine(event)"
       >
         <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
@@ -141,8 +143,11 @@ const loadRoutine = (timeStamp) => {
         id="drop-5-${timeStamp}"
         class="no-padding ${drop5 === "" ? "" : "remove-border"} grey-icon-div" ondragover="allowDrop(event)" ondrop="dragDrop(event)"
       >${drop5 === "" ? "" : drop5Content}</div>
+
+      <div class="border-left no-padding mr-2 ml-2"></div>
+
       <div 
-        class="margin-l-10 no-padding-x display-font cancel-icon-div border-left clickable"
+        class="margin-l-10 no-padding display-font cancel-icon-div clickable"
         onclick="destroyRoutine(event)"
       >
         <img class="icon-sizer-ui cancel-icon img-fluid" src="assets/images/ui/cancel.svg" />
@@ -193,14 +198,19 @@ const loadUsedRoutine = (timeStamp) => {
     >
       <div
         id="reward-${timeStamp}"
-        class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable"
+        class="margin-r-10 no-padding display-font add-reward-icon-div"
       >${reward === "" ? '' : rewardContent}</div>
+      <div class="border-left no-padding mr-2 ml-2"></div>
 
-      <div class="no-padding ${drop1 === "" ? "" : "remove-border"} grey-icon-div">${drop1 === "" ? "" : drop1Content}</div>
-      <div class="no-padding ${drop2 === "" ? "" : "remove-border"} grey-icon-div" >${drop2 === "" ? "" : drop2Content}</div>
-      <div class="no-padding ${drop3 === "" ? "" : "remove-border"} grey-icon-div" >${drop3 === "" ? "" : drop3Content}</div>
-      <div class="no-padding ${drop4 === "" ? "" : "remove-border"} grey-icon-div" >${drop4 === "" ? "" : drop4Content}</div>
-      <div class="no-padding ${drop5 === "" ? "" : "remove-border"} grey-icon-div" >${drop5 === "" ? "" : drop5Content}</div>
+      <div class="no-padding ${drop1 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop1 === "" ? "" : drop1Content}</div>
+
+      <div class="no-padding ${drop2 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop2 === "" ? "" : drop2Content}</div>
+
+      <div class="no-padding ${drop3 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop3 === "" ? "" : drop3Content}</div>
+
+      <div class="no-padding ${drop4 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop4 === "" ? "" : drop4Content}</div>
+
+      <div class="no-padding ${drop5 === "" ? "" : "remove-border"} grey-icon-div" onclick="toggleCompletion(event)">${drop5 === "" ? "" : drop5Content}</div>
     </div>
   `
 
@@ -234,6 +244,18 @@ export const generateLocalStorageRoutinesUsePage = () => {
   })
 }
 
+const toggleCompletion = (e) => {
+  e.preventDefault()
+  console.log("toggling!")
+  const alt = $(e.target).attr('alt') || 'assets/images/rewards/ribbon.svg'
+  const src = $(e.target).attr('src')
+
+  $(e.target).toggleClass("completed")
+  $(e.target).attr('alt', src)
+  $(e.target).attr('src', alt)
+}
+
+window.toggleCompletion = toggleCompletion
 window.addRoutine = addRoutine
 window.destroyRoutine = destroyRoutine
 window.generateLocalStorageRoutinesUsePage = generateLocalStorageRoutinesUsePage

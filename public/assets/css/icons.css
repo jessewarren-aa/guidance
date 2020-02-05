@@ -148,3 +148,7 @@ img[id*="drag"] {
   padding: 5px;
   border-radius: 15px;
 }
+
+.completed {
+  opacity: 0.5;
+}
