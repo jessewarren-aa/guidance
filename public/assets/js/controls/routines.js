@@ -276,6 +276,13 @@ const toggleCompletion = (e) => {
   $(e.target).attr('src', alt)
 
   const routineId = $(e.target).parent().parent().attr('id').slice(4)
+  const timeStamp = routineId.split("-")[1]
+
+  const completedTasks = $(`#use-${routineId}`).children().children(".completed").length
+  const totalTasks = $(`#use-${routineId}`).children(".remove-border").length
+
+  $(`#reward-${timeStamp}`).css({"opacity":`${completedTasks * (1.0 / totalTasks)}`})
+
   const routineObject = JSON.parse(localStorage[routineId])
   const actionId = $(e.target).parent().attr('id').slice(4)
   routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
