@@ -225,8 +225,18 @@ const generateLocalStorageRoutines = () => {
   })
 }
 
+export const generateLocalStorageRoutinesUsePage = () => {
+  $("#use-page-id").html(`<div class="use-page-placer"></div>`)
+  Object.keys(localStorage).forEach(localStorageKey => {
+    if (localStorageKey.toString().startsWith("routine-")) {
+      loadUsedRoutine(localStorageKey.split("-")[1])
+    } // else, ignored key
+  })
+}
+
 window.addRoutine = addRoutine
 window.destroyRoutine = destroyRoutine
+window.generateLocalStorageRoutinesUsePage = generateLocalStorageRoutinesUsePage
 
 generateLocalStorageRoutines()
 

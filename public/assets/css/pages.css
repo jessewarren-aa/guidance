@@ -39,13 +39,21 @@
 #CRP-body {
   max-height: calc(100vh - 143px);
   min-height: calc(100vh - 143px);
-  overflow-y: scroll;
+  
 }
 
 #CRP-days {
   max-width: 515.6px;
+  overflow-y: scroll;
+  max-height: calc(100vh - 143px);
+  min-height: calc(100vh - 143px);
 }
 
+#CRP-routines {
+  overflow-y: scroll;
+  max-height: calc(100vh - 143px);
+  min-height: calc(100vh - 143px);
+}
 /* ::-webkit-scrollbar { 
   display: none; 
 } */

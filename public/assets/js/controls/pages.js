@@ -1,3 +1,5 @@
+
+
 const PAGES = [
   "#user-settings-page",
   "#create-routines-page",
@@ -15,6 +17,10 @@ export const goToPage = (pageId) => {
     })
     $(pageId).removeClass("page-hidden")
     $(pageId).addClass("page-showing")
+
+    if (pageId === "#use-routines-page") {
+      generateLocalStorageRoutinesUsePage()
+    }
   } else {
     console.log("Hey, that page ID doesn't exist. You can clone the project here: https://github.com/jessewarren-aa/guidance and make your own pages!")
   }
