@@ -47,15 +47,6 @@
   100% {transform: translateX(0px)}
 }
 
-.add-reward-animation {
-  animation: add-reward-animation 0.5s;
-}
-
-@keyframes add-reward-animation {
-  0% {transform: rotate(0deg)}
-  100% {transform: rotate(-360deg)}
-}
-
 
 .settings-animation {
   animation: settings-animation 4s;
@@ -104,9 +95,12 @@
 
 .add-reward-icon {
   background: white;
-  padding: 10px;
-  border-radius: 25px;
-  border: 3px solid #cf92ff;
+  padding: 5px;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  margin: 0px 10px;
+  border: 2px solid #E8893C;
 }
 
 .cancel-icon {
@@ -145,4 +139,12 @@ img[id*="drag"] {
 
 .personal-growth {
   border: 2px solid #F7E967;
+}
+
+
+.reward-tag {
+  border: 2px solid #E8893C;
+  background: white;
+  padding: 5px;
+  border-radius: 15px;
 }

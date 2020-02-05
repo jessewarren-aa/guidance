@@ -7,17 +7,17 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-bottom: 50px solid #000000;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
+  border-left: 10px solid #cf92ff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }
 
 .caret:after {
   content: '';
   position: absolute;
-  left: 2px;
-  top: 2px;
-  border-bottom: 48px solid #fff;
-  border-left: 48px solid transparent;
-  border-right: 48px solid transparent;
+  left: 0;
+  top: 5px;
+  border-left: 5px solid #fff;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
 }

@@ -9,8 +9,8 @@ export const addRoutine = (e) => {
       id="routine-${timeStamp}"
       class="border-bottom border-top mb-3 d-flex-center routine-creating animated bounceInDown faster"
     >
-      <div class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable">
-        <img class="icon-sizer-ui add-reward-icon img-fluid" src="assets/images/ui/gems.svg" />
+      <div id="reward-${timeStamp}" class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable">
+        <div class="add-reward-icon"></div>
       </div>
 
       <div 
@@ -46,6 +46,7 @@ export const addRoutine = (e) => {
   $(targetElement).before(routineElement)
 
   window.localStorage.setItem(`routine-${timeStamp}`, JSON.stringify({
+    [`reward-${timeStamp}`]: "",
     [`drop-1-${timeStamp}`]: "",
     [`drop-2-${timeStamp}`]: "",
     [`drop-3-${timeStamp}`]: "",
@@ -63,6 +64,14 @@ const loadRoutine = (timeStamp) => {
   const targetElement = $(".new-routine")
 
   const localStorageObject = JSON.parse(window.localStorage.getItem(`routine-${timeStamp}`))
+
+  const reward = localStorageObject["reward-" + timeStamp] || ""
+  const rewardItems = reward.split(":SEPARATOR:")
+  const rewardContent = `<img 
+        id="${rewardItems[2]}" 
+        class="${rewardItems[0]}" src="${rewardItems[1]}" 
+        />`
+
   const drop1 = localStorageObject["drop-1-" + timeStamp] || ""
   const drop1Items = drop1.split(":SEPARATOR:")
   const drop1Content = `<img 
@@ -110,11 +119,8 @@ const loadRoutine = (timeStamp) => {
     >
       <div 
         id="reward-${timeStamp}"
-        class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable"
-        onclick="chooseReward(event)"
-      >
-        <img class="icon-sizer-ui add-reward-icon img-fluid" src="assets/images/ui/gems.svg" />
-      </div>
+        class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right"
+      >${reward === "" ? '<div class="add-reward-icon"></div>' : rewardContent}</div>
 
       <div 
         id="drop-1-${timeStamp}"
@@ -153,6 +159,14 @@ const loadUsedRoutine = (timeStamp) => {
   const targetElement = $(".use-page-placer")
 
   const localStorageObject = JSON.parse(window.localStorage.getItem(`routine-${timeStamp}`))
+
+  const reward = localStorageObject["reward-" + timeStamp] || ""
+  const rewardItems = reward.split(":SEPARATOR:")
+  const rewardContent = `<img 
+        id="${rewardItems[2]}" 
+        class="${rewardItems[0]}" src="${rewardItems[1]}" 
+        />`
+
   const drop1 = localStorageObject["drop-1-" + timeStamp] || ""
   const drop1Items = drop1.split(":SEPARATOR:")
   const drop1Content = `<img id="${drop1Items[2]}" class="${drop1Items[0]}" src="${drop1Items[1]}" />`
@@ -178,12 +192,10 @@ const loadUsedRoutine = (timeStamp) => {
       id="use-routine-${timeStamp}"
       class="border-bottom border-top mb-3 d-flex-center routine-creating animated bounceInDown faster"
     >
-      <div 
-        id="use-reward-${timeStamp}"
+      <div
+        id="reward-${timeStamp}"
         class="margin-r-10 no-padding-x display-font add-reward-icon-div border-right clickable"
-      >
-        <img class="icon-sizer-ui add-reward-icon img-fluid" src="assets/images/ui/gems.svg" />
-      </div>
+      >${reward === "" ? '' : rewardContent}</div>
 
       <div class="no-padding ${drop1 === "" ? "" : "remove-border"} grey-icon-div">${drop1 === "" ? "" : drop1Content}</div>
       <div class="no-padding ${drop2 === "" ? "" : "remove-border"} grey-icon-div" >${drop2 === "" ? "" : drop2Content}</div>
@@ -193,24 +205,16 @@ const loadUsedRoutine = (timeStamp) => {
     </div>
   `
 
-  $(targetElement).before(routineElement)
-  animationBind("add-reward")
+  if (reward) {
+    $(targetElement).before(routineElement)
+    animationBind("add-reward")
+  }
 }
 
 const destroyRoutine = (e) => {
   const routineId = $(e.target).parent().parent().attr('id')
   window.localStorage.removeItem(routineId)
   $(e.target).parent().parent().remove()
-}
-
-const chooseReward = (e) => {
-  console.log("Choosing reward!")
-  console.log($(e.target).parent().parent().attr('id'))
-  const timeStamp = $(e.target).parent().parent().attr('id').split("-")[1]
-  
-  // $(e.target).parent().parent().addClass("pushed-aside")
-
-  // $(e.target).after(`<div class="caret"></div>`)
 }
 
 const generateLocalStorageRoutines = () => {
@@ -224,7 +228,6 @@ const generateLocalStorageRoutines = () => {
 
 window.addRoutine = addRoutine
 window.destroyRoutine = destroyRoutine
-window.chooseReward = chooseReward
 
 generateLocalStorageRoutines()
 

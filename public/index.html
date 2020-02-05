@@ -31,7 +31,7 @@
 <body>
   <!-- BODY -->
   <!-- START ABOUT PAGE -->
-  <div id="user-settings-page" class="container page-showing page-hiding">
+  <div id="user-settings-page" class="container page-hiding">
     <div class="row">
       <div class="col no-padding-x">
         <div class="section no-padding-x">
@@ -108,7 +108,7 @@
   <!-- END ABOUT PAGE -->
 
   <!-- START EDIT PAGE -->
-  <div id="create-routines-page" class="container page-hiding">
+  <div id="create-routines-page" class="container page-showing page-hiding">
     <div id="CRP-body" class="row">
       <div id="CRP-routines" class="col border-right">
         <div class="border-bottom border-top new-routine d-flex-center">
@@ -121,97 +121,108 @@
         </div>
       </div>
       <div id="CRP-days" class="col border-left">
-        <img id="dragBed" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui bed-icon clickable img-fluid" src="assets/images/routines/bed.svg" 
-        />
-        <img id="dragBrushteeth" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui brushteeth-icon clickable img-fluid" src="assets/images/routines/brushteeth.svg" 
-        />
-        <img id="dragDestress" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui destress-icon clickable img-fluid" src="assets/images/routines/destress.svg" 
-        />
-        <img id="dragGym" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui gym-icon clickable img-fluid" src="assets/images/routines/gym.svg" 
-        />
-        <img id="dragSalad" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui salad-icon clickable img-fluid" src="assets/images/routines/salad.svg" 
-        />
-        <img id="dragShower" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui shower-icon clickable img-fluid" src="assets/images/routines/shower.svg" 
-        />
-        <img id="dragSun" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui sun-icon clickable img-fluid" src="assets/images/routines/sun.svg" 
-        />
-        <img id="dragCardio" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui cardio-icon clickable img-fluid" src="assets/images/routines/cardio.svg" 
-        />
-        <img id="dragWater" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui water-icon clickable img-fluid" src="assets/images/routines/water.svg" 
-        />
-        <img id="dragSelflove" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui selflove-icon clickable img-fluid" src="assets/images/routines/selflove.svg" 
-        />
-        <img id="dragSleep" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui sleepbell-icon clickable img-fluid" src="assets/images/routines/sleepbell.svg" 
-        />
-        <img id="dragHeart" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui hearthealth-icon clickable img-fluid" src="assets/images/routines/hearthealth.svg" 
-        />
-        <img id="dragDate" draggable="true" ondragstart="dragStart(event)"
-          class="personal-care icon-sizer-ui datenight-icon clickable img-fluid" src="assets/images/routines/datenight.svg" 
-        />
-        <img id="dragDishes" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui dishes-icon clickable img-fluid" src="assets/images/routines/dishes.svg" 
-        />
-        <img id="dragDust" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui dust-icon clickable img-fluid" src="assets/images/routines/dust.svg" 
-        />
-        <img id="dragFold" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui fold-icon clickable img-fluid" src="assets/images/routines/foldlaundry.svg" 
-        />
-        <img id="dragPlants" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui plants-icon clickable img-fluid" src="assets/images/routines/plants.svg" 
-        />
-        <img id="dragRecycling" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui recycling-icon clickable img-fluid" src="assets/images/routines/recycling.svg" 
-        />
-        <img id="dragTrash" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui trash-icon clickable img-fluid" src="assets/images/routines/trash.svg" 
-        />
-        <img id="dragVacuum" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui vacuum-icon clickable img-fluid" src="assets/images/routines/vacuum.svg" 
-        />
-        <img id="dragWashing" draggable="true" ondragstart="dragStart(event)"
-          class="home-care icon-sizer-ui washing-icon clickable img-fluid" src="assets/images/routines/washing.svg" 
-        />
-        <img id="dragChecklist" draggable="true" ondragstart="dragStart(event)"
-          class="task-management icon-sizer-ui checklist-icon clickable img-fluid" src="assets/images/routines/checklist.svg" 
-        />
-        <img id="dragGoals" draggable="true" ondragstart="dragStart(event)"
-          class="task-management icon-sizer-ui goals-icon clickable img-fluid" src="assets/images/routines/goals.svg" 
-        />
-        <img id="dragIdea" draggable="true" ondragstart="dragStart(event)"
-          class="task-management icon-sizer-ui idea-icon clickable img-fluid" src="assets/images/routines/idea.svg" 
-        />
-        <img id="dragPlanning" draggable="true" ondragstart="dragStart(event)"
-          class="task-management icon-sizer-ui planning-icon clickable img-fluid" src="assets/images/routines/planning.svg" 
-        />
-        <img id="dragTodo" draggable="true" ondragstart="dragStart(event)"
-          class="task-management icon-sizer-ui todo-icon clickable img-fluid" src="assets/images/routines/todo.svg" 
-        />
-        <img id="dragBusiness" draggable="true" ondragstart="dragStart(event)"
-          class="personal-growth icon-sizer-ui businesswriting-icon clickable img-fluid" src="assets/images/routines/businesswriting.svg" 
-        />
-        <img id="dragData" draggable="true" ondragstart="dragStart(event)"
-          class="personal-growth icon-sizer-ui dataanalysis-icon clickable img-fluid" src="assets/images/routines/dataanalysis.svg" 
-        />
-        <img id="dragReading" draggable="true" ondragstart="dragStart(event)"
-          class="personal-growth icon-sizer-ui reading-icon clickable img-fluid" src="assets/images/routines/reading.svg" 
-        />
-        <img id="dragStudy" draggable="true" ondragstart="dragStart(event)"
-          class="personal-growth icon-sizer-ui study-icon clickable img-fluid" src="assets/images/routines/study.svg" 
-        />
+        <div class="d-flex-center display-font">rewards</div>
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/coins.svg" />
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/cookie.svg" />
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/crepe.svg" />
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/icecream.svg" />
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/movie.svg" />
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/tv.svg" />
+        <img class="reward-tag icon-sizer-ui study-icon clickable img-fluid" src="assets/images/rewards/videogames.svg" />
         
+        <hr />
+        
+        <div class="d-flex-center display-font">actions</div>
+        <img id="dragBed" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui bed-icon clickable img-fluid" 
+          src="assets/images/routines/bed.svg" />
+        <img id="dragBrushteeth" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui brushteeth-icon clickable img-fluid" 
+          src="assets/images/routines/brushteeth.svg" />
+        <img id="dragDestress" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui destress-icon clickable img-fluid" 
+          src="assets/images/routines/destress.svg" />
+        <img id="dragGym" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui gym-icon clickable img-fluid" 
+          src="assets/images/routines/gym.svg" />
+        <img id="dragSalad" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui salad-icon clickable img-fluid" 
+          src="assets/images/routines/salad.svg" />
+        <img id="dragShower" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui shower-icon clickable img-fluid" 
+          src="assets/images/routines/shower.svg" />
+        <img id="dragSun" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui sun-icon clickable img-fluid" 
+          src="assets/images/routines/sun.svg" />
+        <img id="dragCardio" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui cardio-icon clickable img-fluid" 
+          src="assets/images/routines/cardio.svg" />
+        <img id="dragWater" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui water-icon clickable img-fluid" 
+          src="assets/images/routines/water.svg" />
+        <img id="dragSelflove" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui selflove-icon clickable img-fluid" 
+          src="assets/images/routines/selflove.svg" />
+        <img id="dragSleep" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui sleepbell-icon clickable img-fluid" 
+          src="assets/images/routines/sleepbell.svg" />
+        <img id="dragHeart" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui hearthealth-icon clickable img-fluid" 
+          src="assets/images/routines/hearthealth.svg" />
+        <img id="dragDate" draggable="true" ondragstart="dragStart(event)"
+          class="personal-care icon-sizer-ui datenight-icon clickable img-fluid" 
+          src="assets/images/routines/datenight.svg" />
+        <img id="dragDishes" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui dishes-icon clickable img-fluid" 
+          src="assets/images/routines/dishes.svg" />
+        <img id="dragDust" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui dust-icon clickable img-fluid" 
+          src="assets/images/routines/dust.svg" />
+        <img id="dragFold" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui fold-icon clickable img-fluid" 
+          src="assets/images/routines/foldlaundry.svg" />
+        <img id="dragPlants" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui plants-icon clickable img-fluid" 
+          src="assets/images/routines/plants.svg" />
+        <img id="dragRecycling" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui recycling-icon clickable img-fluid" 
+          src="assets/images/routines/recycling.svg" />
+        <img id="dragTrash" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui trash-icon clickable img-fluid" 
+          src="assets/images/routines/trash.svg" />
+        <img id="dragVacuum" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui vacuum-icon clickable img-fluid" 
+          src="assets/images/routines/vacuum.svg" />
+        <img id="dragWashing" draggable="true" ondragstart="dragStart(event)"
+          class="home-care icon-sizer-ui washing-icon clickable img-fluid" 
+          src="assets/images/routines/washing.svg" />
+        <img id="dragChecklist" draggable="true" ondragstart="dragStart(event)"
+          class="task-management icon-sizer-ui checklist-icon clickable img-fluid" 
+          src="assets/images/routines/checklist.svg" />
+        <img id="dragGoals" draggable="true" ondragstart="dragStart(event)"
+          class="task-management icon-sizer-ui goals-icon clickable img-fluid" 
+          src="assets/images/routines/goals.svg" />
+        <img id="dragIdea" draggable="true" ondragstart="dragStart(event)"
+          class="task-management icon-sizer-ui idea-icon clickable img-fluid" 
+          src="assets/images/routines/idea.svg" />
+        <img id="dragPlanning" draggable="true" ondragstart="dragStart(event)"
+          class="task-management icon-sizer-ui planning-icon clickable img-fluid" 
+          src="assets/images/routines/planning.svg" />
+        <img id="dragTodo" draggable="true" ondragstart="dragStart(event)"
+          class="task-management icon-sizer-ui todo-icon clickable img-fluid" 
+          src="assets/images/routines/todo.svg" />
+        <img id="dragBusiness" draggable="true" ondragstart="dragStart(event)"
+          class="personal-growth icon-sizer-ui businesswriting-icon clickable img-fluid" 
+          src="assets/images/routines/businesswriting.svg" />
+        <img id="dragData" draggable="true" ondragstart="dragStart(event)"
+          class="personal-growth icon-sizer-ui dataanalysis-icon clickable img-fluid" 
+          src="assets/images/routines/dataanalysis.svg" />
+        <img id="dragReading" draggable="true" ondragstart="dragStart(event)"
+          class="personal-growth icon-sizer-ui reading-icon clickable img-fluid" 
+          src="assets/images/routines/reading.svg" />
+        <img id="dragStudy" draggable="true" ondragstart="dragStart(event)"
+          class="personal-growth icon-sizer-ui study-icon clickable img-fluid" 
+          src="assets/images/routines/study.svg" />
       </div>
     </div>
     <div class="row d-flex-center">
