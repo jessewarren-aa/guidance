@@ -170,10 +170,15 @@ const loadUsedRoutine = (timeStamp) => {
 
   const reward = localStorageObject["reward-" + timeStamp] || ""
   const rewardItems = reward.split(":SEPARATOR:")
+  console.log(rewardItems)
   const rewardContent = `<img 
         id="${rewardItems[2]}" 
-        class="${rewardItems[0]}" src="${rewardItems[1]}" 
+        class="${rewardItems[0]}" 
+        src="${rewardItems[1]}" 
+        style="${rewardItems[3]}" 
         />`
+
+  console.log(rewardContent)
 
   const drop1 = localStorageObject["drop-1-" + timeStamp] || ""
   const drop1Items = drop1.split(":SEPARATOR:")
@@ -229,6 +234,8 @@ const loadUsedRoutine = (timeStamp) => {
     </div>
   `
 
+  setRewardOpacity(`routine-${timeStamp}`)
+
   if (reward) {
     $(targetElement).before(routineElement)
     animationBind("add-reward")
@@ -263,6 +270,17 @@ export const generateLocalStorageRoutinesUsePage = () => {
   })
 }
 
+const setRewardOpacity = (routineId) => {
+  const timeStamp = routineId.split("-")[1]
+
+  const completedTasks = $(`#use-${routineId}`).children().children(".completed").length
+  const totalTasks = $(`#use-${routineId}`).children(".remove-border").length
+
+  const imageTarget = $(`#use-${routineId}`).children(`#reward-${timeStamp}`).children("img")
+  const currentOpacity = completedTasks * (1.0 / totalTasks)
+  imageTarget.css("opacity", currentOpacity)
+}
+
 const toggleCompletion = (e) => {
   e.preventDefault()
   console.log("toggling!")
@@ -278,14 +296,19 @@ const toggleCompletion = (e) => {
   const routineId = $(e.target).parent().parent().attr('id').slice(4)
   const timeStamp = routineId.split("-")[1]
 
-  const completedTasks = $(`#use-${routineId}`).children().children(".completed").length
-  const totalTasks = $(`#use-${routineId}`).children(".remove-border").length
-
-  $(`#reward-${timeStamp}`).css({"opacity":`${completedTasks * (1.0 / totalTasks)}`})
+  setRewardOpacity(routineId)
 
   const routineObject = JSON.parse(localStorage[routineId])
   const actionId = $(e.target).parent().attr('id').slice(4)
+
+  const rewardObject = $(e.target).parent().parent().children(`#reward-${timeStamp}`).children('img')
+  const rewardId = rewardObject.attr('id')
+  
+  routineObject[rewardId] = rewardObject.attr('class') + ":SEPARATOR:" + rewardObject.attr('src') + ":SEPARATOR:" + rewardObject.attr('id') + ":SEPARATOR:" + rewardObject.attr('style')
+
   routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
+
+
 
   localStorage[routineId] = JSON.stringify(routineObject)
 }

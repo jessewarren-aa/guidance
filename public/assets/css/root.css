@@ -71,3 +71,7 @@ a:hover {
 img[id*="drag"] {
   margin: 5px;
 }
+
+div[id^="use-routine"] > div[id^="reward-"] > img[id^="dragReward"] {
+  opacity: 0;
+}
