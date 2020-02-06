@@ -267,8 +267,19 @@ export const generateLocalStorageRoutinesUsePage = () => {
   })
 }
 
+const earnReward = (routineId) => {
+  const REWARD_KEY = 'routine-guidance-rewards'
+  const timeStamp = routineId.split("-")[1]
+
+  if (!localStorage.getItem(REWARD_KEY)) {
+    localStorage.setItem(REWARD_KEY, JSON.stringify([]))
+  }
+
+  const rewardDiv = $(`#use-${routineId}`).children(`#reward-${timeStamp}`)
+  console.log(rewardDiv)
+}
+
 const setRewardOpacity = (routineId) => {
-  console.log(routineId)
   const timeStamp = routineId.split("-")[1]
   
   const completedTasks = $(`#use-${routineId}`).children().children(".completed").length
@@ -276,6 +287,12 @@ const setRewardOpacity = (routineId) => {
 
   const imageTarget = $(`#use-${routineId}`).children(`#reward-${timeStamp}`).children("img")
   const currentOpacity = completedTasks * (1.0 / totalTasks)
+
+  if (currentOpacity === 1) {
+    // Check that reward isn't already in rewards
+    console.log("EARNED REWARD!")
+    earnReward(routineId)
+  }
 
   imageTarget.css("opacity", currentOpacity)
 }
@@ -300,7 +317,7 @@ const toggleCompletion = (e) => {
   const rewardObject = $(e.target).parent().parent().children(`#reward-${timeStamp}`).children('img')
   const rewardId = rewardObject.attr('id')
   
-  routineObject[rewardId] = rewardObject.attr('class') + ":SEPARATOR:" + rewardObject.attr('src') + ":SEPARATOR:" + rewardObject.attr('id') + ":SEPARATOR:" + rewardObject.attr('style')
+  routineObject[rewardId] = rewardObject.attr('class') + ":SEPARATOR:" + rewardObject.attr('src') + ":SEPARATOR:" + rewardObject.attr('id') + ":SEPARATOR:"
 
   routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
 
