@@ -78,7 +78,7 @@ const loadRoutine = (timeStamp) => {
   const drop1Content = `<img 
         id="${drop1Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
-        class="${drop1Items[0]}" src="${drop1Items[1]}" 
+        class="${drop1Items[0]}" src="${drop1Items[1] !== "assets/images/rewards/ribbon.svg" ? drop1Items[1] : drop1Items[3]}" 
         alt="assets/images/rewards/ribbon.svg"
         />`
 
@@ -87,7 +87,7 @@ const loadRoutine = (timeStamp) => {
   const drop2Content = `<img 
         id="${drop2Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
-        class="${drop2Items[0]}" src="${drop2Items[1]}" 
+        class="${drop2Items[0]}" src="${drop2Items[1] !== "assets/images/rewards/ribbon.svg" ? drop2Items[1] : drop2Items[3]}" 
         alt="assets/images/rewards/ribbon.svg"
         />`
 
@@ -96,7 +96,7 @@ const loadRoutine = (timeStamp) => {
   const drop3Content = `<img 
         id="${drop3Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
-        class="${drop3Items[0]}" src="${drop3Items[1]}" 
+        class="${drop3Items[0]}" src="${drop3Items[1] !== "assets/images/rewards/ribbon.svg" ? drop3Items[1] : drop3Items[3]}" 
         alt="assets/images/rewards/ribbon.svg"
         />`
 
@@ -105,7 +105,7 @@ const loadRoutine = (timeStamp) => {
   const drop4Content = `<img 
         id="${drop4Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
-        class="${drop4Items[0]}" src="${drop4Items[1]}" 
+        class="${drop4Items[0]}" src="${drop4Items[1] !== "assets/images/rewards/ribbon.svg" ? drop4Items[1] : drop4Items[3]}" 
         alt="assets/images/rewards/ribbon.svg"
         />`
 
@@ -114,7 +114,7 @@ const loadRoutine = (timeStamp) => {
   const drop5Content = `<img 
         id="${drop5Items[2]}" 
         draggable="true" ondragstart="dragStart(event)"
-        class="${drop5Items[0]}" src="${drop5Items[1]}" 
+        class="${drop5Items[0]}" src="${drop5Items[1] !== "assets/images/rewards/ribbon.svg" ? drop5Items[1] : drop5Items[3]}" 
         alt="assets/images/rewards/ribbon.svg"
         />`
   
@@ -318,6 +318,7 @@ const setRewardOpacity = (routineId) => {
 
 const toggleCompletion = (e) => {
   e.preventDefault()
+  console.log($(e.target))
   const alt = $(e.target).attr('alt') || 'assets/images/rewards/ribbon.svg'
   const src = $(e.target).attr('src')
 
@@ -340,8 +341,6 @@ const toggleCompletion = (e) => {
 
   routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
 
-
-
   localStorage[routineId] = JSON.stringify(routineObject)
 }
 
@@ -350,8 +349,36 @@ window.addRoutine = addRoutine
 window.destroyRoutine = destroyRoutine
 window.generateLocalStorageRoutinesUsePage = generateLocalStorageRoutinesUsePage
 // window.setRewardOpacity = setRewardOpacity
+const currentDate = new Date()
+const year = currentDate.getFullYear()
+const month = currentDate.getMonth() + 1
+const day = currentDate.getDate()
+const dateStamp = year + "-" + month + "-" + day
+const localStorageDateStamp = localStorage.getItem('guidance-date-stamp')
+if (!localStorageDateStamp) {
+  localStorage.setItem("guidance-date-stamp", dateStamp)
+}
+
+const clearCompleted = () => {
+  console.log("Clearing completed test!")
+
+  $(".completed").toArray().forEach(completedAction => {
+    const actionParentId = $(completedAction).parent().attr('id')
+    if (actionParentId.startsWith('use-')) {
+      toggleCompletion({ "target": $(completedAction), "preventDefault":() => {}})
+    }
+  })
+}
+
+if (dateStamp !== localStorageDateStamp) {
+  console.log("New day new me! Time to clear those completed routines.")
+  clearCompleted()
+  localStorage.setItem("guidance-date-stamp", dateStamp)
+}
 
 generateLocalStorageRoutines()
+
+clearCompleted()
 
 export default {
   addRoutine,
