@@ -378,8 +378,6 @@ if (dateStamp !== localStorageDateStamp) {
 
 generateLocalStorageRoutines()
 
-clearCompleted()
-
 export default {
   addRoutine,
   destroyRoutine
