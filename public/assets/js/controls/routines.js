@@ -268,15 +268,34 @@ export const generateLocalStorageRoutinesUsePage = () => {
 }
 
 const earnReward = (routineId) => {
-  const REWARD_KEY = 'routine-guidance-rewards'
+  const REWARD_KEY = 'guidance-rewards'
   const timeStamp = routineId.split("-")[1]
 
   if (!localStorage.getItem(REWARD_KEY)) {
-    localStorage.setItem(REWARD_KEY, JSON.stringify([]))
+    localStorage.setItem(REWARD_KEY, JSON.stringify({}))
   }
 
+  const currentDate = new Date()
+  const year = currentDate.getFullYear()
+  const month = currentDate.getMonth() + 1  
+  const day = currentDate.getDate()
+  const dateStamp = year + "-" + month + "-" + day
+
   const rewardDiv = $(`#use-${routineId}`).children(`#reward-${timeStamp}`)
-  console.log(rewardDiv)
+  const rewardDivHTML = rewardDiv.clone().wrap("<div/>").parent().html()
+
+  const rewardStorage = JSON.parse(localStorage.getItem(REWARD_KEY))
+
+  if (!rewardStorage[dateStamp]) {
+    rewardStorage[dateStamp] = {}
+  }
+
+  if (!rewardStorage[dateStamp][`#reward-${timeStamp}`]) {
+    rewardStorage[dateStamp][`#reward-${timeStamp}`] = rewardDivHTML
+  } // else, this reward has already been earned today, good job!
+
+  localStorage.setItem(REWARD_KEY, JSON.stringify(rewardStorage))
+  
 }
 
 const setRewardOpacity = (routineId) => {
