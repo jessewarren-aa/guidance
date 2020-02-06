@@ -170,15 +170,11 @@ const loadUsedRoutine = (timeStamp) => {
 
   const reward = localStorageObject["reward-" + timeStamp] || ""
   const rewardItems = reward.split(":SEPARATOR:")
-  console.log(rewardItems)
   const rewardContent = `<img 
         id="${rewardItems[2]}" 
         class="${rewardItems[0]}" 
         src="${rewardItems[1]}" 
-        style="${rewardItems[3]}" 
         />`
-
-  console.log(rewardContent)
 
   const drop1 = localStorageObject["drop-1-" + timeStamp] || ""
   const drop1Items = drop1.split(":SEPARATOR:")
@@ -234,10 +230,11 @@ const loadUsedRoutine = (timeStamp) => {
     </div>
   `
 
-  setRewardOpacity(`routine-${timeStamp}`)
+  
 
   if (reward) {
     $(targetElement).before(routineElement)
+    setRewardOpacity(`routine-${timeStamp}`)
     animationBind("add-reward")
   }
 }
@@ -271,23 +268,22 @@ export const generateLocalStorageRoutinesUsePage = () => {
 }
 
 const setRewardOpacity = (routineId) => {
+  console.log(routineId)
   const timeStamp = routineId.split("-")[1]
-
+  
   const completedTasks = $(`#use-${routineId}`).children().children(".completed").length
   const totalTasks = $(`#use-${routineId}`).children(".remove-border").length
 
   const imageTarget = $(`#use-${routineId}`).children(`#reward-${timeStamp}`).children("img")
   const currentOpacity = completedTasks * (1.0 / totalTasks)
+
   imageTarget.css("opacity", currentOpacity)
 }
 
 const toggleCompletion = (e) => {
   e.preventDefault()
-  console.log("toggling!")
   const alt = $(e.target).attr('alt') || 'assets/images/rewards/ribbon.svg'
   const src = $(e.target).attr('src')
-
-  console.log(alt, src)
 
   $(e.target).toggleClass("completed")
   $(e.target).attr('alt', src)
@@ -317,6 +313,7 @@ window.toggleCompletion = toggleCompletion
 window.addRoutine = addRoutine
 window.destroyRoutine = destroyRoutine
 window.generateLocalStorageRoutinesUsePage = generateLocalStorageRoutinesUsePage
+// window.setRewardOpacity = setRewardOpacity
 
 generateLocalStorageRoutines()
 
