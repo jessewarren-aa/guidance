@@ -27,8 +27,8 @@
 }
 
 .section {
-  max-height: calc(100vh - 182px);
-  min-height: calc(100vh - 182px);
+  max-height: calc(100vh - 167px);
+  min-height: calc(100vh - 167px);
   overflow-y: scroll;
 }
 

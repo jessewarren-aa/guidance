@@ -256,7 +256,7 @@ const generateLocalStorageRoutines = () => {
 
 export const generateLocalStorageRoutinesUsePage = () => {
   $("#use-page-id").html(`<div class="display-font no-padding d-flex-center">rewards earned</div>
-  <div id="use-rewards-earned" class="no-padding"></div>
+  <div id="use-rewards-earned" class="no-padding d-flex-center"></div>
   <hr class="mb-0" />
   <div class="display-font d-flex-center">routines</div>
   <div class="use-page-placer no-padding"></div>`)
@@ -295,6 +295,7 @@ const earnReward = (routineId) => {
   } // else, this reward has already been earned today, good job!
 
   localStorage.setItem(REWARD_KEY, JSON.stringify(rewardStorage))
+  loadRewards()
   
 }
 
@@ -307,7 +308,7 @@ const setRewardOpacity = (routineId) => {
   const imageTarget = $(`#use-${routineId}`).children(`#reward-${timeStamp}`).children("img")
   const currentOpacity = (completedTasks * (1.0 / totalTasks)) + 0.1
 
-  if (currentOpacity === 1) {
+  if (currentOpacity >= 1) {
     // Check that reward isn't already in rewards
     earnReward(routineId)
   }
@@ -371,7 +372,20 @@ if (dateStamp !== localStorageDateStamp) {
   localStorage.setItem("guidance-date-stamp", dateStamp)
 }
 
+const loadRewards = () => {
+  let rewardsHTML = ""
+  const rewards = JSON.parse(localStorage.getItem('guidance-rewards'))
+  Object.keys(rewards).forEach(rewardKey => {
+    Object.values(rewards[rewardKey]).forEach(rewardValue => {
+      rewardsHTML += rewardValue
+    })
+  })
+
+  $('#use-rewards-earned').html(rewardsHTML)
+}
+
 generateLocalStorageRoutines()
+loadRewards()
 
 export default {
   addRoutine,
