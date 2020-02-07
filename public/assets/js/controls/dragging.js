@@ -42,8 +42,7 @@ export const dragDrop = (e) => {
   
 
   if (copy.id.startsWith("dragRoutine")) {
-    if ($(e.target).parent().is(':empty')) {
-      console.log($(e.target))
+    if ($(e.target).attr('id').startsWith("drop-")) {
       $(e.target).addClass("remove-border")
     }
 
@@ -53,11 +52,6 @@ export const dragDrop = (e) => {
 
     if (movedAction) {
       const dragRoutineId = $(`#${data}`).parent().parent().attr('id')
-
-      console.log("dragRoutineId", dragRoutineId)
-      console.log("routineId", routineId)
-      console.log("dropId", dropId)
-      console.log("dragId", dragId)
 
       if (dragRoutineId === routineId) {
         localStorageObj[dragId] = ""
@@ -73,9 +67,14 @@ export const dragDrop = (e) => {
 
     window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
-    // $(e.target).remove("img");
-
-    $(e.target).html(copy);
+    console.log($(e.target))
+    console.log(copy)
+    if ($(e.target).attr('id').startsWith("drop-")) {
+      $(e.target).html(copy);
+    } else {
+      $(e.target).parent().html(copy);
+    }
+    
   }
 
 
