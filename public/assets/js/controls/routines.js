@@ -305,11 +305,10 @@ const setRewardOpacity = (routineId) => {
   const totalTasks = $(`#use-${routineId}`).children(".remove-border").length
 
   const imageTarget = $(`#use-${routineId}`).children(`#reward-${timeStamp}`).children("img")
-  const currentOpacity = completedTasks * (1.0 / totalTasks)
+  const currentOpacity = (completedTasks * (1.0 / totalTasks)) + 0.1
 
   if (currentOpacity === 1) {
     // Check that reward isn't already in rewards
-    console.log("EARNED REWARD!")
     earnReward(routineId)
   }
 
@@ -318,7 +317,6 @@ const setRewardOpacity = (routineId) => {
 
 const toggleCompletion = (e) => {
   e.preventDefault()
-  console.log($(e.target))
   const alt = $(e.target).attr('alt') || 'assets/images/rewards/ribbon.svg'
   const src = $(e.target).attr('src')
 
@@ -360,8 +358,6 @@ if (!localStorageDateStamp) {
 }
 
 const clearCompleted = () => {
-  console.log("Clearing completed test!")
-
   $(".completed").toArray().forEach(completedAction => {
     const actionParentId = $(completedAction).parent().attr('id')
     if (actionParentId.startsWith('use-')) {
@@ -371,7 +367,6 @@ const clearCompleted = () => {
 }
 
 if (dateStamp !== localStorageDateStamp) {
-  console.log("New day new me! Time to clear those completed routines.")
   clearCompleted()
   localStorage.setItem("guidance-date-stamp", dateStamp)
 }
