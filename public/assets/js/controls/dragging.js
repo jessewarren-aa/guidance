@@ -29,8 +29,16 @@ export const dragDrop = (e) => {
 
   
 
-  const routineId = $(e.target).parent().attr('id')
-  const dropId = $(e.target).attr('id')
+  let routineId = $(e.target).parent().attr('id')
+  let dropId = $(e.target).attr('id')
+
+  if (routineId.startsWith("drop-")) {
+    routineId = $(`#${routineId}`).parent().attr('id')
+  }
+
+  if (dropId.startsWith("dragRoutine")) {
+    dropId = $(`#${dropId}`).parent().attr('id')
+  }
   
 
   if (copy.id.startsWith("dragRoutine")) {
@@ -44,6 +52,11 @@ export const dragDrop = (e) => {
 
     if (movedAction) {
       const dragRoutineId = $(`#${data}`).parent().parent().attr('id')
+
+      console.log("dragRoutineId", dragRoutineId)
+      console.log("routineId", routineId)
+      console.log("dropId", dropId)
+      console.log("dragId", dragId)
 
       if (dragRoutineId === routineId) {
         localStorageObj[dragId] = ""
