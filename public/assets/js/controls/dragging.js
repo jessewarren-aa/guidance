@@ -42,7 +42,8 @@ export const dragDrop = (e) => {
   
 
   if (copy.id.startsWith("dragRoutine")) {
-    if ($(e.target).html() === "") {
+    if ($(e.target).parent().is(':empty')) {
+      console.log($(e.target))
       $(e.target).addClass("remove-border")
     }
 
