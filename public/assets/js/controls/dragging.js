@@ -12,8 +12,22 @@ export const dragDrop = (e) => {
   e.preventDefault();
   const data = e.dataTransfer.getData("text");
 
-  const copy = document.getElementById(data).cloneNode(true)
-  copy.id = copy.id + Date.parse((new Date()).toString())
+  let copy = null
+  let movedAction = false
+
+  const dragId = $(`#${data}`).parent().attr('id')
+
+  if (!dragId.startsWith("drop-")) {
+    // moving from choice of actions to routine
+    copy = document.getElementById(data).cloneNode(true)
+    copy.id = copy.id + Date.parse((new Date()).toString())
+  } else {
+    // moving from routine to routine
+    copy = document.getElementById(data)
+    movedAction = true
+  }
+
+  
 
   const routineId = $(e.target).parent().attr('id')
   const dropId = $(e.target).attr('id')
@@ -27,6 +41,19 @@ export const dragDrop = (e) => {
     const localStorageObj = JSON.parse(window.localStorage.getItem(routineId))
 
     localStorageObj[dropId] = $(copy).attr('class') + ":SEPARATOR:" + $(copy).attr('src') + ":SEPARATOR:" + $(copy).attr('id') + ":SEPARATOR:" + ($(e.target).attr('alt') || "")
+
+    if (movedAction) {
+      const dragRoutineId = $(`#${data}`).parent().parent().attr('id')
+
+      if (dragRoutineId === routineId) {
+        localStorageObj[dragId] = ""
+      } else {
+        const lSOld = JSON.parse(window.localStorage.getItem(dragRoutineId))
+        lSOld[dragId] = ""
+
+        window.localStorage.setItem(dragRoutineId, JSON.stringify(lSOld))
+      }
+    }
 
     window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
