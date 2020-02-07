@@ -55,6 +55,8 @@ export const dragDrop = (e) => {
       }
     }
 
+    $(`#${dragId}`).removeClass("remove-border")
+
     window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
     // $(e.target).remove("img");
