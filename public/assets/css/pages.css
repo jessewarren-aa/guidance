@@ -32,6 +32,12 @@
   overflow-y: scroll;
 }
 
+.about-section {
+  max-height: calc(100vh - 157px);
+  min-height: calc(100vh - 157px);
+  overflow-y: scroll;
+}
+
 /* .splash-image-sizer {
   width: 700px;
 } */

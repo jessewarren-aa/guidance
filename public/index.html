@@ -25,21 +25,20 @@
   <link rel="stylesheet" href="assets/css/root.css">
   <link rel="stylesheet" href="assets/css/routines.css">
   <link rel="stylesheet" href="assets/css/animate.css">
-  <link rel="stylesheet" href="assets/css/caret.css">
 
 </head>
 <body>
   <!-- BODY -->
   <!-- START ABOUT PAGE -->
-  <div id="user-settings-page" class="container page-hiding">
+  <div id="user-settings-page" class="container page-showing page-hiding">
     <div class="row">
-      <div class="col no-padding">
-        <div class="section no-padding">
+      <div class="col">
+        <div class="about-section no-padding">
           <div class="display-font-bigger d-flex-center no-padding">
             routine-guidance
           </div>
           <div class="d-flex-center no-padding">
-            <img class="icon-sizer-ui img-fluid" src="assets/images/ui/pinethinking.svg" />
+            <img id="pine-thinking" class="icon-sizer-ui img-fluid animated" src="assets/images/ui/pinethinking.svg" />
           </div>
           <div class="display-font d-flex-center no-padding">
             success is built with patience
@@ -56,7 +55,7 @@
             built by 
           </div>
           <div class="d-flex-center no-padding">
-            <img class="icon-sizer-ui img-fluid" src="assets/images/ui/pinechemist.svg" />
+            <img id="pine-chemist" class="icon-sizer-ui img-fluid animated" src="assets/images/ui/pinechemist.svg" />
           </div>
           <div class="display-font d-flex-center no-padding">
             a kid named Jesse
@@ -70,7 +69,7 @@
             credits
           </div>
           <div class="d-flex-center no-padding">
-            <img class="icon-sizer-ui img-fluid" src="assets/images/ui/pinecredits.svg" />
+            <img id="pine-credits" class="icon-sizer-ui img-fluid animated" src="assets/images/ui/pinecredits.svg" />
           </div>
           <div class="display-font d-flex-center no-padding">
             for I am no designer
@@ -91,12 +90,12 @@
             believe in yourself, okay?
           </div>
           <div class="d-flex-center mb-4">
-            <img class="icon-sizer-ui img-fluid" src="assets/images/ui/pinehearts.svg" />
+            <img id="pine-hearts" class="icon-sizer-ui img-fluid animated" src="assets/images/ui/pinehearts.svg" />
           </div>
         </div>
       </div>
     </div>
-    <div class="row d-flex-center">
+    <div class="row d-flex-center no-padding">
       <div class="col d-flex-start fixed-bottom border-top">
         <div class="display-font clickable back-icon-div" onclick="goToPage('#use-routines-page')">
           <img class="icon-sizer-ui back-icon img-fluid" src="assets/images/ui/back.svg" />
@@ -108,7 +107,7 @@
   <!-- END ABOUT PAGE -->
 
   <!-- START EDIT PAGE -->
-  <div id="create-routines-page" class="container page-showing page-hiding">
+  <div id="create-routines-page" class="container page-hiding">
     <div id="CRP-body" class="row">
       <div id="CRP-routines" class="col border-right">
         <div class="border-bottom border-top new-routine d-flex-center">
