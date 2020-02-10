@@ -67,8 +67,6 @@ export const dragDrop = (e) => {
 
     window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
-    console.log($(e.target))
-    console.log(copy)
     if ($(e.target).attr('id').startsWith("drop-")) {
       $(e.target).html(copy);
     } else {
