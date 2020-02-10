@@ -379,7 +379,6 @@ const loadRewards = () => {
     Object.keys(rewards).forEach(rewardKey => {
       Object.values(rewards[rewardKey]).forEach(rewardValue => {
         rewardValue = rewardValue.replace('style="opacity: 0.', 'style="opacity: 1.')
-        console.log(rewardValue)
         rewardsHTML += rewardValue
       })
     })
