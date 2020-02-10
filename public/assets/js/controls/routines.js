@@ -375,13 +375,17 @@ if (dateStamp !== localStorageDateStamp) {
 const loadRewards = () => {
   let rewardsHTML = ""
   const rewards = JSON.parse(localStorage.getItem('guidance-rewards'))
-  Object.keys(rewards).forEach(rewardKey => {
-    Object.values(rewards[rewardKey]).forEach(rewardValue => {
-      rewardsHTML += rewardValue
+  if (rewards) {
+    Object.keys(rewards).forEach(rewardKey => {
+      Object.values(rewards[rewardKey]).forEach(rewardValue => {
+        rewardsHTML += rewardValue
+      })
     })
-  })
 
-  $('#use-rewards-earned').html(rewardsHTML)
+    $('#use-rewards-earned').html(rewardsHTML)
+  }
+
+  
 }
 
 generateLocalStorageRoutines()
