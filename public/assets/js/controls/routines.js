@@ -292,7 +292,11 @@ const earnReward = (routineId) => {
 
   if (!rewardStorage[dateStamp][`#reward-${timeStamp}`]) {
     rewardStorage[dateStamp][`#reward-${timeStamp}`] = rewardDivHTML
-  } // else, this reward has already been earned today, good job!
+  } else {
+    console.log("Already earned that reward for today, nice job!")
+  }
+  
+  // else, this reward has already been earned today, good job!
 
   localStorage.setItem(REWARD_KEY, JSON.stringify(rewardStorage))
   loadRewards()
