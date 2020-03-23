@@ -1,0 +1,74 @@
+div {
+  padding: 5px 10px;
+  /* margin: 5px 10px; */
+}
+
+.header-font {
+  font-family: 'Megrim', cursive;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.warning-font {
+  font-family: 'Megrim', cursive;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.body-font {
+  font-family: 'Lato', sans-serif;
+  /* font-family: 'Megrim', cursive; */
+  font-size: 18px;
+  /* font-weight: 600; */
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.flipped {
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+}
+
+.hidden {
+  display: none;
+}
+
+.no-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;    
+}
+
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.d-flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
+.d-flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.d-flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ div[class*="col-"] {
+  display: flex;
+  align-items: center;
+}
+
+.d-flex-a-center {
+  display: flex;
+  align-items: center;
+}

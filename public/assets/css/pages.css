@@ -27,14 +27,14 @@
 }
 
 .section {
-  max-height: calc(100vh - 167px);
-  min-height: calc(100vh - 167px);
+  max-height: calc(100vh - 224px);
+  min-height: calc(100vh - 224px);
   overflow-y: scroll;
 }
 
 .about-section {
-  max-height: calc(100vh - 157px);
-  min-height: calc(100vh - 157px);
+  max-height: calc(100vh - 214px);
+  min-height: calc(100vh - 214px);
   overflow-y: scroll;
 }
 
@@ -43,22 +43,22 @@
 } */
 
 #CRP-body {
-  max-height: calc(100vh - 143px);
-  min-height: calc(100vh - 143px);
+  max-height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
   
 }
 
 #CRP-days {
   max-width: 515.6px;
   overflow-y: scroll;
-  max-height: calc(100vh - 143px);
-  min-height: calc(100vh - 143px);
+  max-height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
 }
 
 #CRP-routines {
   overflow-y: scroll;
-  max-height: calc(100vh - 143px);
-  min-height: calc(100vh - 143px);
+  max-height: calc(100vh - 200px);
+  min-height: calc(100vh - 200px);
 }
 /* ::-webkit-scrollbar { 
   display: none; 

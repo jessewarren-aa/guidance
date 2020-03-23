@@ -255,11 +255,13 @@ const generateLocalStorageRoutines = () => {
 }
 
 export const generateLocalStorageRoutinesUsePage = () => {
-  $("#use-page-id").html(`<div class="display-font no-padding d-flex-center">rewards earned</div>
-  <div id="use-rewards-earned" class="no-padding d-flex-center"></div>
+  $("#use-page-id")
+    .html(`<div id="use-rewards-earned" class="no-padding d-flex-center"></div>
   <hr class="mb-0" />
-  <div class="display-font d-flex-center">routines</div>
-  <div class="use-page-placer no-padding"></div>`)
+  <div class="d-flex-center smol-display-font ">
+        Click completed Actions and add your reward above!
+      </div>
+  <div class="use-page-placer no-padding"></div>`);
   Object.keys(localStorage).forEach(localStorageKey => {
     if (localStorageKey.toString().startsWith("routine-")) {
       loadUsedRoutine(localStorageKey.split("-")[1])
