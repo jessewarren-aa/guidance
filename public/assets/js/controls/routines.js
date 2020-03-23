@@ -317,6 +317,9 @@ const resetCompleted = (routineId) => {
     task.toggleClass("completed");
     task.attr("alt", src);
     task.attr("src", alt);
+
+    // [DEV] doesn't set the reset one into localStorage so fix this plz
+    // [DEV] also, make the reset more fluid or something I dunno yo
   })
 }
 
@@ -331,7 +334,8 @@ const setRewardOpacity = (routineId) => {
 
   if (currentOpacity >= 1) {
     earnReward(routineId)
-    resetCompleted(routineId)
+    // resetCompleted(routineId) 
+    // [DEV] uncomment this back in to add "resetting", still needs some fixes
   }
 
   imageTarget.css("opacity", currentOpacity)
