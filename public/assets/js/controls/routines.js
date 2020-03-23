@@ -305,6 +305,21 @@ const earnReward = (routineId) => {
   
 }
 
+const resetCompleted = (routineId) => {
+  const totalTasks = $(`#use-${routineId}`)
+    .children()
+    .children(".completed");
+  totalTasks.each(taskId => {
+    const task = $(totalTasks[taskId])
+    const alt = task.attr("alt") || "assets/images/rewards/ribbon.svg";
+    const src = task.attr("src");
+
+    task.toggleClass("completed");
+    task.attr("alt", src);
+    task.attr("src", alt);
+  })
+}
+
 const setRewardOpacity = (routineId) => {
   const timeStamp = routineId.split("-")[1]
   
@@ -315,8 +330,8 @@ const setRewardOpacity = (routineId) => {
   const currentOpacity = (completedTasks * (1.0 / totalTasks)) + 0.1
 
   if (currentOpacity >= 1) {
-    // Check that reward isn't already in rewards
     earnReward(routineId)
+    resetCompleted(routineId)
   }
 
   imageTarget.css("opacity", currentOpacity)
@@ -384,13 +399,49 @@ const loadRewards = () => {
   if (rewards) {
     Object.keys(rewards).forEach(rewardKey => {
       Object.values(rewards[rewardKey]).forEach(rewardValue => {
-        rewardValue = rewardValue.replace('style="opacity: 0.', 'style="opacity: 1.')
+        rewardValue = rewardValue.replace(
+          'style="opacity: 0.', 
+          'style="opacity: 1.'
+        );
+        rewardValue = rewardValue.replace(
+          'id="reward-',
+          `id="${rewardKey}-earned-reward-`
+        );
+        rewardValue = rewardValue.replace(
+          'id="dragReward',
+          `id="${rewardKey}-earnedDragReward`
+        );
+        rewardValue = rewardValue.replace(
+          'class="margin-r-10',
+          'class="earned-reward-class margin-r-10'
+        );
         rewardsHTML += rewardValue
       })
     })
 
     $('#use-rewards-earned').html(rewardsHTML)
+
   }
+
+  $(".earned-reward-class").click(function() {
+    const dateKey = this.id
+      .split("-")
+      .slice(0, 3)
+      .join("-");
+    const rewardKey = `#${this.id
+      .split("-")
+      .slice(4)
+      .join("-")}`;
+
+    const rewards = JSON.parse(window.localStorage.getItem("guidance-rewards"));
+    delete rewards[dateKey][rewardKey]
+    localStorage.setItem('guidance-rewards', JSON.stringify(rewards))
+
+
+    // window.localStorage.removeItem(routineId);
+    // localStorage.setItem("guidance-date-stamp", dateStamp)
+    // console.log(rewards);
+  });
 
   
 }
