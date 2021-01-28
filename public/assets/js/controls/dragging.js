@@ -86,8 +86,11 @@ export const dragRewardDrop = (e) => {
   const copy = document.getElementById(data).cloneNode(true)
   copy.id = copy.id + Date.parse((new Date()).toString())
 
-  const routineId = $(e.target).parent().attr('id')
-  const dropId = $(e.target).attr('id')
+  const routineId = $(e.currentTarget).parent().attr('id');
+
+  const dropId = $(e.currentTarget).attr('id')
+
+  
 
   if (copy.id.startsWith("dragReward")) {
     $(`#${dropId}`).addClass("remove-border")
@@ -97,7 +100,7 @@ export const dragRewardDrop = (e) => {
 
     window.localStorage.setItem(routineId, JSON.stringify(localStorageObj))
 
-    $(e.target).html(copy);
+    $(e.currentTarget).html(copy);
   }
 }
 

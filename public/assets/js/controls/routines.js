@@ -259,7 +259,7 @@ export const generateLocalStorageRoutinesUsePage = () => {
     .html(`<div id="use-rewards-earned" class="no-padding d-flex-center"></div>
   <hr class="mb-0" />
   <div class="d-flex-center smol-display-font ">
-        Click completed Actions and add your reward above!
+        Click completed Actions to add your reward above!
       </div>
   <div class="use-page-placer no-padding"></div>`);
   Object.keys(localStorage).forEach(localStorageKey => {
@@ -346,26 +346,30 @@ const toggleCompletion = (e) => {
   const alt = $(e.target).attr('alt') || 'assets/images/rewards/ribbon.svg'
   const src = $(e.target).attr('src')
 
-  $(e.target).toggleClass("completed")
-  $(e.target).attr('alt', src)
-  $(e.target).attr('src', alt)
+  if ($(e.target).hasClass("completed")) {
+    
+  } else {
+    $(e.target).addClass("completed")
+    $(e.target).attr('alt', src)
+    $(e.target).attr('src', alt)
 
-  const routineId = $(e.target).parent().parent().attr('id').slice(4)
-  const timeStamp = routineId.split("-")[1]
+    const routineId = $(e.target).parent().parent().attr('id').slice(4)
+    const timeStamp = routineId.split("-")[1]
 
-  setRewardOpacity(routineId)
+    setRewardOpacity(routineId)
 
-  const routineObject = JSON.parse(localStorage[routineId])
-  const actionId = $(e.target).parent().attr('id').slice(4)
+    const routineObject = JSON.parse(localStorage[routineId])
+    const actionId = $(e.target).parent().attr('id').slice(4)
 
-  const rewardObject = $(e.target).parent().parent().children(`#reward-${timeStamp}`).children('img')
-  const rewardId = rewardObject.attr('id')
-  
-  routineObject[rewardId] = rewardObject.attr('class') + ":SEPARATOR:" + rewardObject.attr('src') + ":SEPARATOR:" + rewardObject.attr('id') + ":SEPARATOR:"
+    const rewardObject = $(e.target).parent().parent().children(`#reward-${timeStamp}`).children('img')
+    const rewardId = rewardObject.attr('id')
+    
+    routineObject[rewardId] = rewardObject.attr('class') + ":SEPARATOR:" + rewardObject.attr('src') + ":SEPARATOR:" + rewardObject.attr('id') + ":SEPARATOR:"
 
-  routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
+    routineObject[actionId] = $(e.target).attr('class') + ":SEPARATOR:" + $(e.target).attr('src') + ":SEPARATOR:" + $(e.target).attr('id') + ":SEPARATOR:" + $(e.target).attr('alt')
 
-  localStorage[routineId] = JSON.stringify(routineObject)
+    localStorage[routineId] = JSON.stringify(routineObject)
+  }
 }
 
 window.toggleCompletion = toggleCompletion
@@ -441,6 +445,38 @@ const loadRewards = () => {
     delete rewards[dateKey][rewardKey]
     localStorage.setItem('guidance-rewards', JSON.stringify(rewards))
 
+    // [DEV] this removes the reward (unless it's a reward that is both from today and has all Actions marked as done, which will regen the reward lol)
+
+    // [DEV] add a nice animation or some kind of indication that the reward was consumed please
+
+    // [DEV] also it doesn't repaint the rewards so be sure to do that as well
+    // if (rewards) {
+    //   Object.keys(rewards).forEach(rewardKey => {
+    //     Object.values(rewards[rewardKey]).forEach(rewardValue => {
+    //       rewardValue = rewardValue.replace(
+    //         'style="opacity: 0.', 
+    //         'style="opacity: 1.'
+    //       );
+    //       rewardValue = rewardValue.replace(
+    //         'id="reward-',
+    //         `id="${rewardKey}-earned-reward-`
+    //       );
+    //       rewardValue = rewardValue.replace(
+    //         'id="dragReward',
+    //         `id="${rewardKey}-earnedDragReward`
+    //       );
+    //       rewardValue = rewardValue.replace(
+    //         'class="margin-r-10',
+    //         'class="earned-reward-class margin-r-10'
+    //       );
+    //       rewardsHTML += rewardValue
+    //     })
+    //   })
+
+    //   $('#use-rewards-earned').html(rewardsHTML)
+    // }
+
+    
 
     // window.localStorage.removeItem(routineId);
     // localStorage.setItem("guidance-date-stamp", dateStamp)

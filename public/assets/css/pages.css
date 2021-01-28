@@ -2,6 +2,7 @@
   background: white;
   height: 100vh;
   transition: 0.5s;
+  margin-left: 15vw;
 }
 
 .page-hiding {
@@ -18,12 +19,14 @@
   background: white;
   height: 100vh;
   transition: 0.5s;
+  margin-left: 15vw;
 }
 
 #use-routines-page {
   background: white;
   height: 100vh;
   transition: 0.5s;
+  margin-left: 15vw;
 }
 
 .section {

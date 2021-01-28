@@ -1,3 +1,10 @@
+body {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  margin: auto;
+}
+
 div {
   padding: 15px;
 }
@@ -74,4 +81,28 @@ img[id*="drag"] {
 
 div[id^="use-routine"] > div[id^="reward-"] > img[id^="dragReward"] {
   opacity: 0;
+}
+
+
+
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #8ed7e8 white;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #8ed7e8;
+  border-radius: 20px;
+  border: 3px solid white;
 }
